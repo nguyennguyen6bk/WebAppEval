@@ -117,6 +117,9 @@ In this example, the evaluator will perform **two checks**:
 
 ✅ Both conditions must pass for the task to be considered **successful**.
 
+**Example:**
+The evaluation logic is provided in the **`evaluate/`** directory as a reference for agents using Selenium or Playwright.
+
 ### 3️. Supported Matchers
 
 | Matcher | Description | Typical Use Case |
