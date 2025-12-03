@@ -17,7 +17,7 @@
     },
     {
         "task_id": "2",
-        "task_description": "Rate the product “Hero Hoodie” with 4 stars.",
+        "task_description": "Rate the product \"Hero Hoodie\" with 4 stars.",
         "task_type": "operation",
         "start_url": "__SHOPPING__",
         "require_login": true,
@@ -97,7 +97,7 @@
     },
     {
         "task_id": "6",
-        "task_description": "Add the product “Push It Messenger Bag” to the shopping cart and navigate to the cart page.",
+        "task_description": "Add the product \"Push It Messenger Bag\" to the shopping cart and navigate to the cart page.",
         "task_type": "operation",
         "start_url": "__SHOPPING__",
         "require_login": false,
@@ -236,7 +236,7 @@
     },
     {
         "task_id": "14",
-        "task_description": "Apply coupon code “save5percent” and purchase “Erika Running Short” in size 32 and color Red.",
+        "task_description": "Apply coupon code \"save5percent\" and purchase \"Erika Running Short\" in size 32 and color Red.",
         "task_type": "operation",
         "start_url": "__SHOPPING__",
         "require_login": false,
@@ -252,7 +252,7 @@
     },
     {
         "task_id": "15",
-        "task_description": "Create a cart price rule named “10% Off on Orders Over $15” with the coupon code “save10percentfororderover15dollar”, giving 10% off for orders with a subtotal of $15 or more. Then purchase the product “Sprite Foam Roller” and apply the coupon.",
+        "task_description": "Create a cart price rule named \"10% Off on Orders Over $15\" with the coupon code \"save10percentfororderover15dollar\", giving 10% off for orders with a subtotal of $15 or more.",
         "task_type": "operation",
         "start_url": "__SHOPPING_ADMIN__",
         "require_login": true,
@@ -268,7 +268,7 @@
     },
     {
         "task_id": "16",
-        "task_description": "Create a product named “Bag hand made” with the attribute set “Bag”, priced at $30, quantity 100, marked as in stock, assigned to the “Bag” category, and make it visible on the storefront.",
+        "task_description": "Create a product named \"Bag hand made\" with the attribute set \"Bag\", priced at $30, quantity 100, marked as in stock, assigned to the \"Bag\" category, and make it visible on the storefront.",
         "task_type": "operation",
         "start_url": "__SHOPPING_ADMIN__",
         "require_login": true,
@@ -287,7 +287,7 @@
     },
     {
         "task_id": "17",
-        "task_description": "Change the stock status of the product “Endurance Watch” to “Out of Stock.”",
+        "task_description": "Change the stock status of the product \"Endurance Watch\" to \"Out of Stock.\"",
         "task_type": "operation",
         "start_url": "__SHOPPING_ADMIN__",
         "require_login": true,
@@ -1639,7 +1639,7 @@
     },
     {
         "task_id": "89",
-        "task_description": "Open the latest pinned message in “Company Portal.”",
+        "task_description": "Open the latest pinned message in \"Company Portal.\"",
         "task_type": "operation",
         "start_url": "__ERP__",
         "require_login": true,
@@ -1687,7 +1687,7 @@
     },
     {
         "task_id": "92",
-        "task_description": "Check the weight of the product “Office Chair Black.”",
+        "task_description": "Check the weight of the product \"Office Chair Black.\"",
         "task_type": "lookup",
         "start_url": "__ERP__",
         "require_login": true,
@@ -1735,7 +1735,7 @@
     },
     {
         "task_id": "95",
-        "task_description": "View the work address of employee “Randall Lewis.”",
+        "task_description": "View the work address of employee \"Randall Lewis.\"",
         "task_type": "lookup",
         "start_url": "__ERP__",
         "require_login": true,
@@ -1805,7 +1805,7 @@
     },
     {
         "task_id": "99",
-        "task_description": "Apply a 10% discount to the product “Pizza Starfruit” in quotation S00028.",
+        "task_description": "Apply a 10% discount to the product \"Pizza Starfruit\" in quotation S00028.",
         "task_type": "operation",
         "start_url": "__ERP__",
         "require_login": true,
@@ -1840,7 +1840,7 @@
     },
     {
         "task_id": "101",
-        "task_description": "Add “Overnight Duffle” to comparison, then add “Strive Shoulder Pack” to comparison, and open the Compare Products page.",
+        "task_description": "Add \"Overnight Duffle\" to comparison, then add \"Strive Shoulder Pack\" to comparison, and open the Compare Products page.",
         "task_type": "operation",
         "start_url": "__SHOPPING__",
         "require_login": true,
@@ -1860,7 +1860,7 @@
     },
     {
         "task_id": "103",
-        "task_description": "Update the street of my default billing address to “2222 Sai Gon”.",
+        "task_description": "Update the street of my default billing address to '2222 Sai Gon'.",
         "task_type": "operation",
         "start_url": "__SHOPPING__",
         "require_login": true,
@@ -1870,7 +1870,7 @@
     },
     {
         "task_id": "104",
-        "task_description": "Add a product review for “Didi Sport Watch” with a 4-star rating and a short comment.",
+        "task_description": "Add a product review for 'Didi Sport Watch' with a 4-star rating and a short comment.",
         "task_type": "operation",
         "start_url": "__SHOPPING__",
         "require_login": true,
@@ -1920,7 +1920,7 @@
     },
     {
         "task_id": "109",
-        "task_description": "Find all products with keyword “short” priced between $40 and $42.",
+        "task_description": "Find all products with keyword \"short\" priced between $40 and $42.",
         "task_type": "lookup",
         "start_url": "__SHOPPING_ADMIN__",
         "require_login": true,
@@ -1940,7 +1940,7 @@
     },
     {
         "task_id": "111",
-        "task_description": "Navigate to the default shipping address of customer “Veronica Costello.”",
+        "task_description": "Navigate to the default shipping address of customer \"Veronica Costello.\"",
         "task_type": "lookup",
         "start_url": "__SHOPPING_ADMIN__",
         "require_login": true,
@@ -1970,7 +1970,7 @@
     },
     {
         "task_id": "114",
-        "task_description": "Create a configurable product “Aether Gym Pant” with attributes Size (S, M, L) and Color (Black, Gray), priced at $55.",
+        "task_description": "Create a configurable product \"Aether Gym Pant\" with attributes Size (S, M, L) and Color (Black, Gray), priced at $55.",
         "task_type": "operation",
         "start_url": "__SHOPPING_ADMIN__",
         "require_login": true,
@@ -2050,7 +2050,7 @@
     },
     {
         "task_id": "122",
-        "task_description": "Edit the status to “Not Approved” for the review with content “These looked really ugly on my feet…\"",
+        "task_description": "Edit the status to \"Not Approved\" for the review with content \"These looked really ugly on my feet…\"",
         "task_type": "operation",
         "start_url": "__SHOPPING_ADMIN__",
         "require_login": true,
@@ -2280,7 +2280,7 @@
     },
     {
         "task_id": "145",
-        "task_description": "Create a leave request for \"Dec 4\", then edit it to \"Dec 5\".",
+        "task_description": "Edit the leave date from \"September 9\" to \"September 11\".",
         "task_type": "operation",
         "start_url": "__LMS__",
         "require_login": true,
@@ -2343,16 +2343,6 @@
         "task_description": "Display all leave requests currently marked as Requested.",
         "task_type": "lookup",
         "start_url": "__LMS__",
-        "require_login": true,
-        "eval": {
-            "eval_type": []
-        }
-    },
-    {
-        "task_id": "156",
-        "task_description": "Create a customer group named \"Wholesale-5\" and set a 5% discount for this group.",
-        "task_type": "operation",
-        "start_url": "__SHOPPING_ADMIN__",
         "require_login": true,
         "eval": {
             "eval_type": []
