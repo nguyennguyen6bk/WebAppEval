@@ -4,6 +4,7 @@
         "task_description": "Navigate to the detail page of the first product listed in the \"Gear > Watches\" category.",
         "task_type": "lookup",
         "start_url": "__SHOPPING__",
+        "steps": "3",
         "require_login": false,
         "eval": {
             "eval_type": [
@@ -20,6 +21,7 @@
         "task_description": "Rate the product \"Hero Hoodie\" with 4 stars.",
         "task_type": "operation",
         "start_url": "__SHOPPING__",
+        "steps": "9",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -36,6 +38,7 @@
         "task_description": "Navigate to the \"Women > Pants\" category page, then open the detail page of the 13th listed product.",
         "task_type": "lookup",
         "start_url": "__SHOPPING__",
+        "steps": "4",
         "require_login": false,
         "eval": {
             "eval_type": [
@@ -52,6 +55,7 @@
         "task_description": "Purchase 3 units of 'Push It Messenger Bag' using the cheapest shipping method.",
         "task_type": "operation",
         "start_url": "__SHOPPING__",
+        "steps": "12",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -68,6 +72,7 @@
         "task_description": "Create a new customer account",
         "task_type": "form",
         "start_url": "__SHOPPING__",
+        "steps": "8",
         "require_login": false,
         "eval": {
             "eval_type": [
@@ -100,6 +105,7 @@
         "task_description": "Add the product \"Push It Messenger Bag\" to the shopping cart and navigate to the cart page.",
         "task_type": "operation",
         "start_url": "__SHOPPING__",
+        "steps": "6",
         "require_login": false,
         "eval": {
             "eval_type": [
@@ -121,6 +127,7 @@
         "task_description": "Subscribe to the website via the subscription field with email \"account.test.4@mynes.com\"",
         "task_type": "operation",
         "start_url": "__SHOPPING__",
+        "steps": "3",
         "require_login": false,
         "eval": {
             "eval_type": [
@@ -140,6 +147,7 @@
         "task_description": "Navigate to Watches, apply filter results by price $40–$49.99, sort by Price: Low to High, and view first first product detail page.",
         "task_type": "lookup",
         "start_url": "__SHOPPING__",
+        "steps": "8",
         "require_login": false,
         "eval": {
             "eval_type": []
@@ -150,6 +158,7 @@
         "task_description": "Place an order as a guest and navigate to the order confirmation page.",
         "task_type": "operation",
         "start_url": "__SHOPPING__",
+        "steps": "17",
         "require_login": false,
         "eval": {
             "eval_type": [
@@ -169,6 +178,7 @@
         "task_description": "Save the product 'Josie Yoga Jacket' to wishlist.",
         "task_type": "operation",
         "start_url": "__SHOPPING__",
+        "steps": "6",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -188,6 +198,7 @@
         "task_description": "Place an order for the product 'Hyperion Elements Jacket - XL - Red' on behalf of the user with the email address 'account.test.2@mynes.com'.",
         "task_type": "operation",
         "start_url": "__SHOPPING_ADMIN__",
+        "steps": "12",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -207,6 +218,7 @@
         "task_description": "Navigate to the latest comment for order #000000003.",
         "task_type": "lookup",
         "start_url": "__SHOPPING_ADMIN__",
+        "steps": "4",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -223,6 +235,7 @@
         "task_description": "Open order #000000004 and navigate to its tracking details page.",
         "task_type": "lookup",
         "start_url": "__SHOPPING_ADMIN__",
+        "steps": "5",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -239,6 +252,7 @@
         "task_description": "Apply coupon code \"save5percent\" and purchase \"Erika Running Short\" in size 32 and color Red.",
         "task_type": "operation",
         "start_url": "__SHOPPING__",
+        "steps": "9",
         "require_login": false,
         "eval": {
             "eval_type": [
@@ -255,6 +269,7 @@
         "task_description": "Create a cart price rule named \"10% Off on Orders Over $15\" with the coupon code \"save10percentfororderover15dollar\", giving 10% off for orders with a subtotal of $15 or more.",
         "task_type": "operation",
         "start_url": "__SHOPPING_ADMIN__",
+        "steps": "20",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -271,6 +286,7 @@
         "task_description": "Create a product named \"Bag hand made\" with the attribute set \"Bag\", priced at $30, quantity 100, marked as in stock, assigned to the \"Bag\" category, and make it visible on the storefront.",
         "task_type": "operation",
         "start_url": "__SHOPPING_ADMIN__",
+        "steps": "18",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -290,6 +306,7 @@
         "task_description": "Change the stock status of the product \"Endurance Watch\" to \"Out of Stock.\"",
         "task_type": "operation",
         "start_url": "__SHOPPING_ADMIN__",
+        "steps": "9",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -309,6 +326,7 @@
         "task_description": "Reach page 2 of the Women > Pants listing.",
         "task_type": "Lookup",
         "start_url": "__SHOPPING__",
+        "steps": "4",
         "require_login": false,
         "eval": {
             "eval_type": [
@@ -325,6 +343,7 @@
         "task_description": "Disable the product 'Compete Track Tote'.",
         "task_type": "operation",
         "start_url": "__SHOPPING_ADMIN__",
+        "steps": "8",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -344,6 +363,7 @@
         "task_description": "Enable the product 'Voyage Yoga Bag'.",
         "task_type": "operation",
         "start_url": "__SHOPPING_ADMIN__",
+        "steps": "8",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -363,6 +383,7 @@
         "task_description": "Modify content heading of About US page to 'About Our Company'",
         "task_type": "operation",
         "start_url": "__SHOPPING_ADMIN__",
+        "steps": "7",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -382,6 +403,7 @@
         "task_description": "Compare two products 'Rival Field Messenger' and 'Fusion Backpack'",
         "task_type": "operation",
         "start_url": "__SHOPPING__",
+        "steps": "8",
         "require_login": false,
         "eval": {
             "eval_type": [
@@ -401,6 +423,7 @@
         "task_description": "Perform Full Refund Using Default Values for Order \"000000009\"",
         "task_type": "operation",
         "start_url": "__SHOPPING_ADMIN__",
+        "steps": "6",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -420,6 +443,7 @@
         "task_description": "Perform partial refund using default values for product 'Josie Yoga Jacket (Size XL, Gray)' in Order '000000010' .",
         "task_type": "operation",
         "start_url": "__SHOPPING_ADMIN__",
+        "steps": "7",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -439,6 +463,7 @@
         "task_description": "Reorder the Most Recent Order of Customer 'Veronica Costello'",
         "task_type": "operation",
         "start_url": "__SHOPPING_ADMIN__",
+        "steps": "4",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -463,6 +488,7 @@
         "task_description": "Reorder the very first order associated with my account.",
         "task_type": "operation",
         "start_url": "__SHOPPING__",
+        "steps": "8",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -482,6 +508,7 @@
         "task_description": "Update the heading on the Customer Service CMS page from 'Luma Delivery and Returns' to 'Luna Service Team'.",
         "task_type": "operation",
         "start_url": "__SHOPPING_ADMIN__",
+        "steps": "10",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -501,6 +528,7 @@
         "task_description": "Create a new CMS page 'Store Location'",
         "task_type": "operation",
         "start_url": "__SHOPPING_ADMIN__",
+        "steps": "6",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -520,6 +548,7 @@
         "task_description": "Update the price of the product with SKU 24-WG088 to $15.",
         "task_type": "operation",
         "start_url": "__SHOPPING_ADMIN__",
+        "steps": "8",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -535,10 +564,11 @@
         }
     },
     {
-        "task_id": "31",
+        "task_id": "30",
         "task_description": "Create a new project named :  \"Demo Website\"",
         "task_type": "operation",
         "start_url": "__PROJECT__",
+        "steps": "6",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -554,10 +584,11 @@
         }
     },
     {
-        "task_id": "32",
+        "task_id": "31",
         "task_description": "Update the description of project \"Demo Shop\" to \"Demo Shop is an eCommerce website based on the Magento platform.\"",
         "task_type": "operation",
         "start_url": "__PROJECT__",
+        "steps": "4",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -573,10 +604,11 @@
         }
     },
     {
-        "task_id": "33",
+        "task_id": "32",
         "task_description": "Disable WIKI module in Demo Shop project",
         "task_type": "operation",
         "start_url": "__PROJECT__",
+        "steps": "5",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -592,10 +624,11 @@
         }
     },
     {
-        "task_id": "34",
+        "task_id": "33",
         "task_description": "Enable the \"News\" module in the \"Demo Shop\" project, then create a new news item titled \"Project Sponsorship Announcement\"",
         "task_type": "operation",
         "start_url": "__PROJECT__",
+        "steps": "5",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -611,10 +644,11 @@
         }
     },
     {
-        "task_id": "35",
+        "task_id": "34",
         "task_description": "Close the Demo App project.",
         "task_type": "operation",
         "start_url": "__PROJECT__",
+        "steps": "5",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -630,10 +664,11 @@
         }
     },
     {
-        "task_id": "36",
+        "task_id": "35",
         "task_description": "Create a new user.",
         "task_type": "form",
         "start_url": "__PROJECT__",
+        "steps": "5",
         "require_login": false,
         "eval": {
             "eval_type": [
@@ -649,10 +684,11 @@
         }
     },
     {
-        "task_id": "37",
+        "task_id": "36",
         "task_description": "Assign user with email \"nguyen.nguyen.6bk@gmail.com\" to project \"Demo Shop\" with role \"Developer\"",
         "task_type": "operation",
         "start_url": "__PROJECT__",
+        "steps": "14",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -668,10 +704,11 @@
         }
     },
     {
-        "task_id": "38",
+        "task_id": "37",
         "task_description": "Enforce a password change on next login for the user whose email is \"account.test.3@mynes.com\".",
         "task_type": "operation",
         "start_url": "__PROJECT__",
+        "steps": "7",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -687,10 +724,11 @@
         }
     },
     {
-        "task_id": "39",
+        "task_id": "38",
         "task_description": "Register a new user with email \"account.test.1@mynes.com\"",
         "task_type": "form",
         "start_url": "__PROJECT__",
+        "steps": "5",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -706,10 +744,11 @@
         }
     },
     {
-        "task_id": "40",
+        "task_id": "39",
         "task_description": "Display the \"Status\" column in the user list",
         "task_type": "operation",
         "start_url": "__PROJECT__",
+        "steps": "12",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -725,10 +764,11 @@
         }
     },
     {
-        "task_id": "41",
+        "task_id": "40",
         "task_description": "Create new version \"version3\" for project \"Demo Shop\"",
         "task_type": "operation",
         "start_url": "__PROJECT__",
+        "steps": "6",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -744,10 +784,11 @@
         }
     },
     {
-        "task_id": "42",
+        "task_id": "41",
         "task_description": "Assign feature \"3\" to version \"version2\" in project \"Demo Shop\"",
         "task_type": "operation",
         "start_url": "__PROJECT__",
+        "steps": "7",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -763,10 +804,11 @@
         }
     },
     {
-        "task_id": "43",
+        "task_id": "42",
         "task_description": "Create a custom field named 'Environment' for the 'Bug' tracker across all projects, using a dropdown list with the values Internal, UAT, and Production.",
         "task_type": "operation",
         "start_url": "__PROJECT__",
+        "steps": "7",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -786,10 +828,11 @@
         }
     },
     {
-        "task_id": "44",
+        "task_id": "43",
         "task_description": "Create a custom field named \"Start Date\" of type Date in the \"Projects\" module, and make it visible to all users.",
         "task_type": "operation",
         "start_url": "__PROJECT__",
+        "steps": "16",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -805,10 +848,11 @@
         }
     },
     {
-        "task_id": "45",
+        "task_id": "44",
         "task_description": "Modify the workflow for Developers in the Bug Tracker so that they cannot transition issues from New to the Closed status.",
         "task_type": "operation",
         "start_url": "__PROJECT__",
+        "steps": "10",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -824,10 +868,11 @@
         }
     },
     {
-        "task_id": "46",
+        "task_id": "45",
         "task_description": "Configure the workflow to allow users with the \"Developer\" role to transition a bug from the \"Rejected\" status back to \"In Progress\".",
         "task_type": "operation",
         "start_url": "__PROJECT__",
+        "steps": "8",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -843,10 +888,11 @@
         }
     },
     {
-        "task_id": "47",
+        "task_id": "46",
         "task_description": "Configure the workflow to allow users with the \"Manager\" role to transition issues in the \"Feature\" tracker from the \"Closed\" status back to \"New\".",
         "task_type": "operation",
         "start_url": "__PROJECT__",
+        "steps": "8",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -862,10 +908,11 @@
         }
     },
     {
-        "task_id": "48",
+        "task_id": "47",
         "task_description": "Create a new role named \"QC\", and configure the workflow so that users with this role can set issues in the \"Bug\" tracker to the \"In Progress\" status.",
         "task_type": "operation",
         "start_url": "__PROJECT__",
+        "steps": "8",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -881,10 +928,11 @@
         }
     },
     {
-        "task_id": "49",
+        "task_id": "48",
         "task_description": "Rename role \"Testing\" to \"QA\".",
         "task_type": "operation",
         "start_url": "__PROJECT__",
+        "steps": "18",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -900,10 +948,11 @@
         }
     },
     {
-        "task_id": "50",
+        "task_id": "49",
         "task_description": "Create a new status \"Pending\" for Issue",
         "task_type": "operation",
         "start_url": "__PROJECT__",
+        "steps": "5",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -919,10 +968,11 @@
         }
     },
     {
-        "task_id": "51",
+        "task_id": "50",
         "task_description": "Create a custom field named \"Test Case Link\" of type Link in the Bug Tracker module, visible to all users and applicable to all projects.",
         "task_type": "operation",
         "start_url": "__PROJECT__",
+        "steps": "5",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -938,10 +988,11 @@
         }
     },
     {
-        "task_id": "52",
+        "task_id": "51",
         "task_description": "Move the \"Closed\" issue status to the last position in the \"Issue statuses\" board configuration.",
         "task_type": "operation",
         "start_url": "__PROJECT__",
+        "steps": "10",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -957,10 +1008,11 @@
         }
     },
     {
-        "task_id": "53",
+        "task_id": "52",
         "task_description": "Create a new quotation for customer \"Abigail Peterson\" with 1 unit of the product \"Cheese Burger\"",
         "task_type": "operation",
         "start_url": "__ERP__",
+        "steps": "4",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -976,10 +1028,11 @@
         }
     },
     {
-        "task_id": "54",
+        "task_id": "53",
         "task_description": "Convert quotation \"S00003\" to a confirmed sales order.",
         "task_type": "operation",
         "start_url": "__ERP__",
+        "steps": "4",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -995,10 +1048,11 @@
         }
     },
     {
-        "task_id": "55",
+        "task_id": "54",
         "task_description": "Create a new product named 'Pizza Pineapple' and set its sale price to 10 dollars.",
         "task_type": "operation",
         "start_url": "__ERP__",
+        "steps": "5",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -1014,10 +1068,11 @@
         }
     },
     {
-        "task_id": "56",
+        "task_id": "55",
         "task_description": "Create a new restaurant floor layout named 'Ground Floor' for Restaurant",
         "task_type": "operation",
         "start_url": "__ERP__",
+        "steps": "9",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -1033,10 +1088,11 @@
         }
     },
     {
-        "task_id": "57",
+        "task_id": "56",
         "task_description": "Add a new table named 'Table 5' to floor 'Second Floor' of NYC Shop",
         "task_type": "operation",
         "start_url": "__ERP__",
+        "steps": "10",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -1052,10 +1108,11 @@
         }
     },
     {
-        "task_id": "58",
+        "task_id": "57",
         "task_description": "Create a Point of Sale named 'Purple Shop'",
         "task_type": "operation",
         "start_url": "__ERP__",
+        "steps": "10",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -1071,10 +1128,11 @@
         }
     },
     {
-        "task_id": "59",
+        "task_id": "58",
         "task_description": "Start a new Point of Sale session for \"New Shop\"",
         "task_type": "operation",
         "start_url": "__ERP__",
+        "steps": "8",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -1090,10 +1148,11 @@
         }
     },
     {
-        "task_id": "60",
+        "task_id": "59",
         "task_description": "Close the current PoS session for 'NM Shop', automatically validating any open or unpaid orders.",
         "task_type": "operation",
         "start_url": "__ERP__",
+        "steps": "7",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -1109,10 +1168,11 @@
         }
     },
     {
-        "task_id": "61",
+        "task_id": "60",
         "task_description": "Split the bill for \"Table 3\" in the Main Floor of the \"Restaurant\" by moving the item 'Cheese Burger' to a separate bill.",
         "task_type": "operation",
         "start_url": "__ERP__",
+        "steps": "12",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -1128,10 +1188,11 @@
         }
     },
     {
-        "task_id": "62",
+        "task_id": "61",
         "task_description": "Create a new lead for customer with email \"account.test.2@mynes.com\" interested in 'Website Design Services'.",
         "task_type": "operation",
         "start_url": "__ERP__",
+        "steps": "8",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -1147,10 +1208,11 @@
         }
     },
     {
-        "task_id": "63",
+        "task_id": "62",
         "task_description": "Assign a salesperson \"Marc Demo\" to a lead \"Website Development\"",
         "task_type": "operation",
         "start_url": "__ERP__",
+        "steps": "7",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -1166,10 +1228,11 @@
         }
     },
     {
-        "task_id": "64",
+        "task_id": "63",
         "task_description": "Create a regular invoice from the sales order with reference number S00021.",
         "task_type": "operation",
         "start_url": "__ERP__",
+        "steps": "7",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -1185,10 +1248,11 @@
         }
     },
     {
-        "task_id": "65",
+        "task_id": "64",
         "task_description": "Register \"Cash Restaurant\" for invoice \"INV/2025/00005\"",
         "task_type": "operation",
         "start_url": "__ERP__",
+        "steps": "8",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -1204,10 +1268,11 @@
         }
     },
     {
-        "task_id": "66",
+        "task_id": "65",
         "task_description": "Create a new employee profile named \"Employee 1\" with the email \"account.test.5@mynes.com\".",
         "task_type": "operation",
         "start_url": "__ERP__",
+        "steps": "8",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -1223,10 +1288,11 @@
         }
     },
     {
-        "task_id": "67",
+        "task_id": "66",
         "task_description": "Update the employee named \"Employee 2\" by setting their Job Position to \"Web Developer\" using the Job Position placeholder field.",
         "task_type": "operation",
         "start_url": "__ERP__",
+        "steps": "8",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -1242,10 +1308,11 @@
         }
     },
     {
-        "task_id": "68",
+        "task_id": "67",
         "task_description": "Create new job position \"QC Manager\"",
         "task_type": "operation",
         "start_url": "__ERP__",
+        "steps": "9",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -1261,10 +1328,11 @@
         }
     },
     {
-        "task_id": "69",
+        "task_id": "68",
         "task_description": "Create new employment type \"Internship\"",
         "task_type": "operation",
         "start_url": "__ERP__",
+        "steps": "10",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -1280,10 +1348,11 @@
         }
     },
     {
-        "task_id": "70",
+        "task_id": "69",
         "task_description": "Move \"Full-Time\" to the first position in the list of employment types.",
         "task_type": "operation",
         "start_url": "__ERP__",
+        "steps": "9",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -1299,10 +1368,11 @@
         }
     },
     {
-        "task_id": "71",
+        "task_id": "70",
         "task_description": "Allocate 2 days of Paid Time Off exclusively to Cherry Nguyen.",
         "task_type": "operation",
         "start_url": "__ERP__",
+        "steps": "8",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -1318,10 +1388,11 @@
         }
     },
     {
-        "task_id": "72",
+        "task_id": "71",
         "task_description": "Navigate to Paul Williams’s org chart and view direct reports.",
         "task_type": "operation",
         "start_url": "__ERP__",
+        "steps": "8",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -1334,10 +1405,11 @@
         }
     },
     {
-        "task_id": "73",
+        "task_id": "72",
         "task_description": "Create a new Time off type named 'Marriage Leave'.",
         "task_type": "operation",
         "start_url": "__ERP__",
+        "steps": "8",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -1353,10 +1425,11 @@
         }
     },
     {
-        "task_id": "74",
+        "task_id": "73",
         "task_description": "Approve all time off requests submitted by Anita Olivier.",
         "task_type": "operation",
         "start_url": "__ERP__",
+        "steps": "8",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -1372,10 +1445,11 @@
         }
     },
     {
-        "task_id": "75",
+        "task_id": "74",
         "task_description": "Activate the Project module from the Apps menu",
         "task_type": "operation",
         "start_url": "__ERP__",
+        "steps": "8",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -1391,10 +1465,11 @@
         }
     },
     {
-        "task_id": "76",
+        "task_id": "75",
         "task_description": "Change the email address of \"Alaska Company\" to email \"account.test.4@mynes.com\".",
         "task_type": "operation",
         "start_url": "__ERP__",
+        "steps": "10",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -1410,10 +1485,11 @@
         }
     },
     {
-        "task_id": "77",
+        "task_id": "76",
         "task_description": "Create a stock adjustment for product 'Pizza Starfruit' with quantity 200",
         "task_type": "operation",
         "start_url": "__ERP__",
+        "steps": "11",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -1429,10 +1505,11 @@
         }
     },
     {
-        "task_id": "78",
+        "task_id": "77",
         "task_description": "Duplicate the sales order S00006",
         "task_type": "operation",
         "start_url": "__ERP__",
+        "steps": "8",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -1448,10 +1525,11 @@
         }
     },
     {
-        "task_id": "79",
+        "task_id": "78",
         "task_description": "Create a new warehouse location named 'Freezer Room'.",
         "task_type": "operation",
         "start_url": "__ERP__",
+        "steps": "6",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -1467,10 +1545,11 @@
         }
     },
     {
-        "task_id": "80",
+        "task_id": "79",
         "task_description": "Cancel the quotation S00004",
         "task_type": "operation",
         "start_url": "__ERP__",
+        "steps": "8",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -1486,10 +1565,11 @@
         }
     },
     {
-        "task_id": "81",
+        "task_id": "80",
         "task_description": "Change the stage of opportunity 'AI Agent Development' to 'Won'.",
         "task_type": "operation",
         "start_url": "__ERP__",
+        "steps": "6",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -1505,10 +1585,11 @@
         }
     },
     {
-        "task_id": "82",
+        "task_id": "81",
         "task_description": "Terminate employee 'Employee 4' effective today.",
         "task_type": "operation",
         "start_url": "__ERP__",
+        "steps": "6",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -1524,10 +1605,11 @@
         }
     },
     {
-        "task_id": "83",
+        "task_id": "82",
         "task_description": "Send a message to user \"Alice Lam\" with the content \"Please review the sales report.\"",
         "task_type": "operation",
         "start_url": "__ERP__",
+        "steps": "8",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -1543,10 +1625,11 @@
         }
     },
     {
-        "task_id": "84",
+        "task_id": "83",
         "task_description": "Start a new channel named \"Dev Team Chat\".",
         "task_type": "operation",
         "start_url": "__ERP__",
+        "steps": "4",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -1562,10 +1645,11 @@
         }
     },
     {
-        "task_id": "85",
+        "task_id": "84",
         "task_description": "Add Alice Lam and Marc Demo to an existing channel called 'QC Team'.",
         "task_type": "operation",
         "start_url": "__ERP__",
+        "steps": "4",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -1581,10 +1665,11 @@
         }
     },
     {
-        "task_id": "86",
+        "task_id": "85",
         "task_description": "Send a message \"Standup at 9 AM\" in channel \"Company Portal\".",
         "task_type": "operation",
         "start_url": "__ERP__",
+        "steps": "6",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -1600,10 +1685,11 @@
         }
     },
     {
-        "task_id": "87",
+        "task_id": "86",
         "task_description": "React to the latest message in 'Company Portal' with a 'thumbs up' emoji.",
         "task_type": "operation",
         "start_url": "__ERP__",
+        "steps": "4",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -1619,10 +1705,11 @@
         }
     },
     {
-        "task_id": "88",
+        "task_id": "87",
         "task_description": "Mention user \"Marc Demo\" in a message inside channel \"Company Portal\".",
         "task_type": "operation",
         "start_url": "__ERP__",
+        "steps": "5",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -1638,10 +1725,11 @@
         }
     },
     {
-        "task_id": "89",
+        "task_id": "88",
         "task_description": "Open the latest pinned message in \"Company Portal.\"",
         "task_type": "operation",
         "start_url": "__ERP__",
+        "steps": "5",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -1654,10 +1742,11 @@
         }
     },
     {
-        "task_id": "90",
+        "task_id": "89",
         "task_description": "Check the status of the sales record with reference S00002.",
         "task_type": "lookup",
         "start_url": "__ERP__",
+        "steps": "4",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -1670,10 +1759,11 @@
         }
     },
     {
-        "task_id": "91",
+        "task_id": "90",
         "task_description": "Check the untaxed total amount of sales order S00004.",
         "task_type": "lookup",
         "start_url": "__ERP__",
+        "steps": "3",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -1686,10 +1776,11 @@
         }
     },
     {
-        "task_id": "92",
+        "task_id": "91",
         "task_description": "Check the weight of the product \"Office Chair Black.\"",
         "task_type": "lookup",
         "start_url": "__ERP__",
+        "steps": "6",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -1702,10 +1793,11 @@
         }
     },
     {
-        "task_id": "93",
+        "task_id": "92",
         "task_description": "Check the shipping policy of sales order S00004.",
         "task_type": "lookup",
         "start_url": "__ERP__",
+        "steps": "8",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -1718,10 +1810,11 @@
         }
     },
     {
-        "task_id": "94",
+        "task_id": "93",
         "task_description": "View the most recent school attended by Tina Williamson.",
         "task_type": "lookup",
         "start_url": "__ERP__",
+        "steps": "6",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -1734,10 +1827,11 @@
         }
     },
     {
-        "task_id": "95",
+        "task_id": "94",
         "task_description": "View the work address of employee \"Randall Lewis.\"",
         "task_type": "lookup",
         "start_url": "__ERP__",
+        "steps": "8",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -1750,10 +1844,11 @@
         }
     },
     {
-        "task_id": "96",
+        "task_id": "95",
         "task_description": "Check the number of parental leave days allocated to Ronnie Hart.",
         "task_type": "lookup",
         "start_url": "__ERP__",
+        "steps": "6",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -1766,10 +1861,11 @@
         }
     },
     {
-        "task_id": "97",
+        "task_id": "96",
         "task_description": "Convert the lead named \"Website Development\" into an opportunity and set the expected revenue to $50,000.",
         "task_type": "operation",
         "start_url": "__ERP__",
+        "steps": "4",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -1785,10 +1881,11 @@
         }
     },
     {
-        "task_id": "98",
+        "task_id": "97",
         "task_description": "Transfer 10 units of \"Office Chair Black\" from  POS/Shop to WH/Stock. ",
         "task_type": "operation",
         "start_url": "__ERP__",
+        "steps": "10",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -1804,10 +1901,11 @@
         }
     },
     {
-        "task_id": "99",
+        "task_id": "98",
         "task_description": "Apply a 10% discount to the product \"Pizza Starfruit\" in quotation S00028.",
         "task_type": "operation",
         "start_url": "__ERP__",
+        "steps": "10",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -1820,10 +1918,11 @@
         }
     },
     {
-        "task_id": "100",
+        "task_id": "99",
         "task_description": "Change the tags of the opportunity titled \"5 VP Chairs\" to \"Product\"",
         "task_type": "operation",
         "start_url": "__ERP__",
+        "steps": "6",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -1839,10 +1938,22 @@
         }
     },
     {
-        "task_id": "101",
+        "task_id": "100",
         "task_description": "Add \"Overnight Duffle\" to comparison, then add \"Strive Shoulder Pack\" to comparison, and open the Compare Products page.",
         "task_type": "operation",
         "start_url": "__SHOPPING__",
+        "steps": "8",
+        "require_login": true,
+        "eval": {
+            "eval_type": []
+        }
+    },
+    {
+        "task_id": "101",
+        "task_description": "add a new shipping address, and set it as the default shipping address.",
+        "task_type": "operation",
+        "start_url": "__SHOPPING__",
+        "steps": "9",
         "require_login": true,
         "eval": {
             "eval_type": []
@@ -1850,9 +1961,10 @@
     },
     {
         "task_id": "102",
-        "task_description": "add a new shipping address, and set it as the default shipping address.",
+        "task_description": "Update the street of my default billing address to '2222 Sai Gon'.",
         "task_type": "operation",
         "start_url": "__SHOPPING__",
+        "steps": "14",
         "require_login": true,
         "eval": {
             "eval_type": []
@@ -1860,9 +1972,10 @@
     },
     {
         "task_id": "103",
-        "task_description": "Update the street of my default billing address to '2222 Sai Gon'.",
+        "task_description": "Add a product review for 'Didi Sport Watch' with a 4-star rating and a short comment.",
         "task_type": "operation",
         "start_url": "__SHOPPING__",
+        "steps": "7",
         "require_login": true,
         "eval": {
             "eval_type": []
@@ -1870,9 +1983,10 @@
     },
     {
         "task_id": "104",
-        "task_description": "Add a product review for 'Didi Sport Watch' with a 4-star rating and a short comment.",
+        "task_description": "Print Order 000000008.",
         "task_type": "operation",
         "start_url": "__SHOPPING__",
+        "steps": "8",
         "require_login": true,
         "eval": {
             "eval_type": []
@@ -1880,19 +1994,21 @@
     },
     {
         "task_id": "105",
-        "task_description": "Print Order 000000008.",
+        "task_description": "View details of the last Men’s Indoor Short.",
         "task_type": "operation",
         "start_url": "__SHOPPING__",
-        "require_login": true,
+        "steps": "5",
+        "require_login": false,
         "eval": {
             "eval_type": []
         }
     },
     {
         "task_id": "106",
-        "task_description": "View details of the last Men’s Indoor Short.",
+        "task_description": "Empty the shopping cart and add three products:  \"Deirdre Relaxed-Fit\", \"Sylvia Capri\", and \"Aeon Capri\"  to cart",
         "task_type": "operation",
         "start_url": "__SHOPPING__",
+        "steps": "5",
         "require_login": false,
         "eval": {
             "eval_type": []
@@ -1900,9 +2016,10 @@
     },
     {
         "task_id": "107",
-        "task_description": "Empty the shopping cart and add three products:  \"Deirdre Relaxed-Fit\", \"Sylvia Capri\", and \"Aeon Capri\"  to cart",
-        "task_type": "operation",
+        "task_description": "View the highest-priced product detail page in Women > Pants.",
+        "task_type": "lookup",
         "start_url": "__SHOPPING__",
+        "steps": "16",
         "require_login": false,
         "eval": {
             "eval_type": []
@@ -1910,39 +2027,43 @@
     },
     {
         "task_id": "108",
-        "task_description": "View the highest-priced product detail page in Women > Pants.",
-        "task_type": "lookup",
-        "start_url": "__SHOPPING__",
-        "require_login": false,
-        "eval": {
-            "eval_type": []
-        }
-    },
-    {
-        "task_id": "109",
         "task_description": "Find all products with keyword \"short\" priced between $40 and $42.",
         "task_type": "lookup",
         "start_url": "__SHOPPING_ADMIN__",
+        "steps": "6",
         "require_login": true,
         "eval": {
             "eval_type": []
         }
     },
     {
-        "task_id": "110",
+        "task_id": "109",
         "task_description": "Navigate to Returns and Replacements service",
         "task_type": "lookup",
         "start_url": "__SHOPPING__",
+        "steps": "7",
         "require_login": false,
         "eval": {
             "eval_type": []
         }
     },
     {
-        "task_id": "111",
+        "task_id": "110",
         "task_description": "Navigate to the default shipping address of customer \"Veronica Costello.\"",
         "task_type": "lookup",
         "start_url": "__SHOPPING_ADMIN__",
+        "steps": "3",
+        "require_login": true,
+        "eval": {
+            "eval_type": []
+        }
+    },
+    {
+        "task_id": "111",
+        "task_description": "Update the approval status of rating \"291\" to Not Approved.",
+        "task_type": "operation",
+        "start_url": "__SHOPPING_ADMIN__",
+        "steps": "6",
         "require_login": true,
         "eval": {
             "eval_type": []
@@ -1950,9 +2071,10 @@
     },
     {
         "task_id": "112",
-        "task_description": "Update the approval status of rating \"291\" to Not Approved.",
+        "task_description": "Create a customer group named \"Wholesale-10\", then assign the customer \"account.test.5@mynes.com\" to this group.\n.",
         "task_type": "operation",
         "start_url": "__SHOPPING_ADMIN__",
+        "steps": "7",
         "require_login": true,
         "eval": {
             "eval_type": []
@@ -1960,9 +2082,10 @@
     },
     {
         "task_id": "113",
-        "task_description": "Create a customer group named \"Wholesale-10\", then assign the customer \"account.test.5@mynes.com\" to this group.\n.",
+        "task_description": "Create a configurable product \"Aether Gym Pant\" with attributes Size (S, M, L) and Color (Black, Gray), priced at $55.",
         "task_type": "operation",
         "start_url": "__SHOPPING_ADMIN__",
+        "steps": "10",
         "require_login": true,
         "eval": {
             "eval_type": []
@@ -1970,9 +2093,10 @@
     },
     {
         "task_id": "114",
-        "task_description": "Create a configurable product \"Aether Gym Pant\" with attributes Size (S, M, L) and Color (Black, Gray), priced at $55.",
+        "task_description": "Enable Cash On Delivery Payment method",
         "task_type": "operation",
         "start_url": "__SHOPPING_ADMIN__",
+        "steps": "20",
         "require_login": true,
         "eval": {
             "eval_type": []
@@ -1980,9 +2104,10 @@
     },
     {
         "task_id": "115",
-        "task_description": "Enable Cash On Delivery Payment method",
-        "task_type": "operation",
+        "task_description": "View the Coupons Usage Report for the date range from yesterday to today",
+        "task_type": "lookup",
         "start_url": "__SHOPPING_ADMIN__",
+        "steps": "8",
         "require_login": true,
         "eval": {
             "eval_type": []
@@ -1990,9 +2115,10 @@
     },
     {
         "task_id": "116",
-        "task_description": "View the Coupons Usage Report for the date range from yesterday to today",
+        "task_description": "Show all products with color Lavender.",
         "task_type": "lookup",
         "start_url": "__SHOPPING_ADMIN__",
+        "steps": "7",
         "require_login": true,
         "eval": {
             "eval_type": []
@@ -2000,9 +2126,10 @@
     },
     {
         "task_id": "117",
-        "task_description": "Show all products with color Lavender.",
+        "task_description": "Show all female customers.",
         "task_type": "lookup",
         "start_url": "__SHOPPING_ADMIN__",
+        "steps": "10",
         "require_login": true,
         "eval": {
             "eval_type": []
@@ -2010,9 +2137,10 @@
     },
     {
         "task_id": "118",
-        "task_description": "Show all female customers.",
-        "task_type": "lookup",
+        "task_description": "Change the order status from \"Suspected Fraud\" to \"Suspected Fraud (Untrusted)\".",
+        "task_type": "operation",
         "start_url": "__SHOPPING_ADMIN__",
+        "steps": "6",
         "require_login": true,
         "eval": {
             "eval_type": []
@@ -2020,9 +2148,10 @@
     },
     {
         "task_id": "119",
-        "task_description": "Change the order status from \"Suspected Fraud\" to \"Suspected Fraud (Untrusted)\".",
+        "task_description": "Change the payment method name from \"Bank Transfer Payment\" to \"Offline Bank Payment\".",
         "task_type": "operation",
         "start_url": "__SHOPPING_ADMIN__",
+        "steps": "6",
         "require_login": true,
         "eval": {
             "eval_type": []
@@ -2030,9 +2159,10 @@
     },
     {
         "task_id": "120",
-        "task_description": "Change the payment method name from \"Bank Transfer Payment\" to \"Offline Bank Payment\".",
+        "task_description": "Change the Admin Session Lifetime to 12 hours.",
         "task_type": "operation",
         "start_url": "__SHOPPING_ADMIN__",
+        "steps": "10",
         "require_login": true,
         "eval": {
             "eval_type": []
@@ -2040,9 +2170,10 @@
     },
     {
         "task_id": "121",
-        "task_description": "Change the Admin Session Lifetime to 12 hours.",
+        "task_description": "Edit the status to \"Not Approved\" for the review with content \"These looked really ugly on my feet…\"",
         "task_type": "operation",
         "start_url": "__SHOPPING_ADMIN__",
+        "steps": "8",
         "require_login": true,
         "eval": {
             "eval_type": []
@@ -2050,9 +2181,10 @@
     },
     {
         "task_id": "122",
-        "task_description": "Edit the status to \"Not Approved\" for the review with content \"These looked really ugly on my feet…\"",
+        "task_description": "Add a new user using the email \"account.test.2@mynes.com\" and assign \"account.test.1@mynes.com\" as the manager.",
         "task_type": "operation",
-        "start_url": "__SHOPPING_ADMIN__",
+        "start_url": "__LMS__",
+        "steps": "6",
         "require_login": true,
         "eval": {
             "eval_type": []
@@ -2060,29 +2192,32 @@
     },
     {
         "task_id": "123",
-        "task_description": "Add a new user using the email \"account.test.2@mynes.com\" and assign \"account.test.1@mynes.com\" as the manager.",
-        "task_type": "operation",
-        "start_url": "__LMS__",
-        "require_login": true,
-        "eval": {
-            "eval_type": []
-        }
-    },
-    {
-        "task_id": "124",
         "task_description": "Log in as employee using username \"qc.lead.1\" and password \"Admin@123\", then log out.",
         "task_type": "operation",
         "start_url": "__LMS__",
+        "steps": "10",
         "require_login": false,
         "eval": {
             "eval_type": []
         }
     },
     {
-        "task_id": "125",
+        "task_id": "124",
         "task_description": "Assign account.test.1@mynes.com as the manager of account.test.3@mynes.com.",
         "task_type": "operation",
         "start_url": "__LMS__",
+        "steps": "6",
+        "require_login": true,
+        "eval": {
+            "eval_type": []
+        }
+    },
+    {
+        "task_id": "125",
+        "task_description": "Submit a new two-day leave request from next Monday to next Tuesday.",
+        "task_type": "operation",
+        "start_url": "__LMS__",
+        "steps": "6",
         "require_login": true,
         "eval": {
             "eval_type": []
@@ -2090,9 +2225,10 @@
     },
     {
         "task_id": "126",
-        "task_description": "Submit a new two-day leave request from next Monday to next Tuesday.",
+        "task_description": "Submit a half-day leave request for next week Friday morning",
         "task_type": "operation",
         "start_url": "__LMS__",
+        "steps": "8",
         "require_login": true,
         "eval": {
             "eval_type": []
@@ -2100,9 +2236,10 @@
     },
     {
         "task_id": "127",
-        "task_description": "Submit a half-day leave request for next week Friday morning",
+        "task_description": "View the list of submitted leave requests.",
         "task_type": "operation",
         "start_url": "__LMS__",
+        "steps": "10",
         "require_login": true,
         "eval": {
             "eval_type": []
@@ -2110,9 +2247,10 @@
     },
     {
         "task_id": "128",
-        "task_description": "View the list of submitted leave requests.",
+        "task_description": "Cancel the submitted Pending leave request on Oct 9",
         "task_type": "operation",
         "start_url": "__LMS__",
+        "steps": "2",
         "require_login": true,
         "eval": {
             "eval_type": []
@@ -2120,9 +2258,10 @@
     },
     {
         "task_id": "129",
-        "task_description": "Cancel the submitted Pending leave request on Oct 9",
+        "task_description": "Approve a leave request for \"pm ONE\" on December 28.",
         "task_type": "operation",
         "start_url": "__LMS__",
+        "steps": "3",
         "require_login": true,
         "eval": {
             "eval_type": []
@@ -2130,9 +2269,10 @@
     },
     {
         "task_id": "130",
-        "task_description": "Approve a leave request for \"pm ONE\" on December 28.",
+        "task_description": "Reject all leave requests for December 25 with the comment \"It is wellness day.\"",
         "task_type": "operation",
         "start_url": "__LMS__",
+        "steps": "3",
         "require_login": true,
         "eval": {
             "eval_type": []
@@ -2140,9 +2280,10 @@
     },
     {
         "task_id": "131",
-        "task_description": "Reject all leave requests for December 25 with the comment \"It is wellness day.\"",
+        "task_description": "Filter pending leave requests by employee \"employee FOUR\"",
         "task_type": "operation",
         "start_url": "__LMS__",
+        "steps": "6",
         "require_login": true,
         "eval": {
             "eval_type": []
@@ -2150,9 +2291,10 @@
     },
     {
         "task_id": "132",
-        "task_description": "Filter pending leave requests by employee \"employee FOUR\"",
+        "task_description": "Update a pending leave request to switch from paid leave to sick leave on September 12.",
         "task_type": "operation",
         "start_url": "__LMS__",
+        "steps": "4",
         "require_login": true,
         "eval": {
             "eval_type": []
@@ -2160,9 +2302,10 @@
     },
     {
         "task_id": "133",
-        "task_description": "Update a pending leave request to switch from paid leave to sick leave on September 12.",
+        "task_description": "Change the system language to Vietnamese.",
         "task_type": "operation",
         "start_url": "__LMS__",
+        "steps": "7",
         "require_login": true,
         "eval": {
             "eval_type": []
@@ -2170,29 +2313,32 @@
     },
     {
         "task_id": "134",
-        "task_description": "Change the system language to Vietnamese.",
-        "task_type": "operation",
-        "start_url": "__LMS__",
-        "require_login": true,
-        "eval": {
-            "eval_type": []
-        }
-    },
-    {
-        "task_id": "135",
         "task_description": "Log in using the provided user = \"accountant1\" and password = \"Admin@123\", then reset the password to \"Jorani@2025\".",
         "task_type": "operation",
         "start_url": "__LMS__",
+        "steps": "3",
         "require_login": false,
         "eval": {
             "eval_type": []
         }
     },
     {
-        "task_id": "136",
+        "task_id": "135",
         "task_description": "Change the manager of user = \"account.test.3@mynes.com\" to manager = \"account.test.5@mynes.com\".",
         "task_type": "operation",
         "start_url": "__LMS__",
+        "steps": "6",
+        "require_login": true,
+        "eval": {
+            "eval_type": []
+        }
+    },
+    {
+        "task_id": "136",
+        "task_description": "Assign a 3-day compensate leave entitlement for \"account.test.3@mynes.com\" for this year.",
+        "task_type": "operation",
+        "start_url": "__LMS__",
+        "steps": "6",
         "require_login": true,
         "eval": {
             "eval_type": []
@@ -2200,9 +2346,10 @@
     },
     {
         "task_id": "137",
-        "task_description": "Assign a 3-day compensate leave entitlement for \"account.test.3@mynes.com\" for this year.",
+        "task_description": "Change the login username of \"account.test.4@mynes.com\" to \"developer4\".",
         "task_type": "operation",
         "start_url": "__LMS__",
+        "steps": "14",
         "require_login": true,
         "eval": {
             "eval_type": []
@@ -2210,9 +2357,10 @@
     },
     {
         "task_id": "138",
-        "task_description": "Change the login username of \"account.test.4@mynes.com\" to \"developer4\".",
+        "task_description": "Reset the password for user \"account.test.4@mynes.com\" to \"Jorani@2025\"",
         "task_type": "operation",
         "start_url": "__LMS__",
+        "steps": "6",
         "require_login": true,
         "eval": {
             "eval_type": []
@@ -2220,9 +2368,10 @@
     },
     {
         "task_id": "139",
-        "task_description": "Reset the password for user \"account.test.4@mynes.com\" to \"Jorani@2025\"",
+        "task_description": "Delete the account of user \"account.test.6@mynes.com\".",
         "task_type": "operation",
         "start_url": "__LMS__",
+        "steps": "6",
         "require_login": true,
         "eval": {
             "eval_type": []
@@ -2230,9 +2379,10 @@
     },
     {
         "task_id": "140",
-        "task_description": "Delete the account of user \"account.test.6@mynes.com\".",
+        "task_description": "Update the email of user \"account.test.7@mynes.com\" to \"internship.test.7@mynes.com\".",
         "task_type": "operation",
         "start_url": "__LMS__",
+        "steps": "4",
         "require_login": true,
         "eval": {
             "eval_type": []
@@ -2240,9 +2390,10 @@
     },
     {
         "task_id": "141",
-        "task_description": "Update the email of user \"account.test.7@mynes.com\" to \"internship.test.7@mynes.com\".",
+        "task_description": "Change the position of user \"account.test.4@mynes.com\" from Employee to Manager.",
         "task_type": "operation",
         "start_url": "__LMS__",
+        "steps": "6",
         "require_login": true,
         "eval": {
             "eval_type": []
@@ -2250,9 +2401,10 @@
     },
     {
         "task_id": "142",
-        "task_description": "Change the position of user \"account.test.4@mynes.com\" from Employee to Manager.",
+        "task_description": "Grant administrator rights to \"admin.test.8@mynes.com\".",
         "task_type": "operation",
         "start_url": "__LMS__",
+        "steps": "6",
         "require_login": true,
         "eval": {
             "eval_type": []
@@ -2260,9 +2412,10 @@
     },
     {
         "task_id": "143",
-        "task_description": "Grant administrator rights to \"admin.test.8@mynes.com\".",
+        "task_description": "Reject a leave request for user \"pm ONE\" on \"Dec 10\" with a comment \"Insufficient balance.\"",
         "task_type": "operation",
         "start_url": "__LMS__",
+        "steps": "5",
         "require_login": true,
         "eval": {
             "eval_type": []
@@ -2270,9 +2423,10 @@
     },
     {
         "task_id": "144",
-        "task_description": "Reject a leave request for user \"pm ONE\" on \"Dec 10\" with a comment \"Insufficient balance.\"",
+        "task_description": "Edit the leave date from \"September 9\" to \"September 11\".",
         "task_type": "operation",
         "start_url": "__LMS__",
+        "steps": "5",
         "require_login": true,
         "eval": {
             "eval_type": []
@@ -2280,9 +2434,10 @@
     },
     {
         "task_id": "145",
-        "task_description": "Edit the leave date from \"September 9\" to \"September 11\".",
+        "task_description": "Set the default time zone of user account.test.1@mynes.com to Asia/Ho_Chi_Minh.",
         "task_type": "operation",
         "start_url": "__LMS__",
+        "steps": "9",
         "require_login": true,
         "eval": {
             "eval_type": []
@@ -2290,9 +2445,10 @@
     },
     {
         "task_id": "146",
-        "task_description": "Set the default time zone of user account.test.1@mynes.com to Asia/Ho_Chi_Minh.",
+        "task_description": "Grant a 12-day \"Paid Leave\" entitlement to \"account.test.3@mynes.com\" for the current year.",
         "task_type": "operation",
         "start_url": "__LMS__",
+        "steps": "8",
         "require_login": true,
         "eval": {
             "eval_type": []
@@ -2300,9 +2456,10 @@
     },
     {
         "task_id": "147",
-        "task_description": "Grant a 12-day \"Paid Leave\" entitlement to \"account.test.3@mynes.com\" for the current year.",
+        "task_description": "Create a new department named \"Accountant\", then assign user \"account.test.8@mynes.com\" to this department ",
         "task_type": "operation",
         "start_url": "__LMS__",
+        "steps": "12",
         "require_login": true,
         "eval": {
             "eval_type": []
@@ -2310,9 +2467,10 @@
     },
     {
         "task_id": "148",
-        "task_description": "Create a new department named \"Accountant\", then assign user \"account.test.8@mynes.com\" to this department ",
+        "task_description": "Create a new position named \"internship\" and change position of user  \"internship2\" to internship",
         "task_type": "operation",
         "start_url": "__LMS__",
+        "steps": "8",
         "require_login": true,
         "eval": {
             "eval_type": []
@@ -2320,9 +2478,10 @@
     },
     {
         "task_id": "149",
-        "task_description": "Create a new position named \"internship\" and change position of user  \"internship2\" to internship",
+        "task_description": "Submit a compensate leave request for the first Monday of next month.",
         "task_type": "operation",
         "start_url": "__LMS__",
+        "steps": "10",
         "require_login": true,
         "eval": {
             "eval_type": []
@@ -2330,19 +2489,10 @@
     },
     {
         "task_id": "150",
-        "task_description": "Submit a compensate leave request for the first Monday of next month.",
-        "task_type": "operation",
-        "start_url": "__LMS__",
-        "require_login": true,
-        "eval": {
-            "eval_type": []
-        }
-    },
-    {
-        "task_id": "154",
         "task_description": "Display all leave requests currently marked as Requested.",
         "task_type": "lookup",
         "start_url": "__LMS__",
+        "steps": "8",
         "require_login": true,
         "eval": {
             "eval_type": []
