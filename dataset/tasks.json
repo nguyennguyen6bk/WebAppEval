@@ -76,21 +76,8 @@
         "require_login": false,
         "eval": {
             "eval_type": [
-                "regex_match",
                 "dom_match"
             ],
-            "regex_match": {
-                "email": {
-                    "pattern": "^[\\w.-]+@[\\w.-]+\\.\\w{2,}$",
-                    "required": true,
-                    "description": "A valid email address (e.g., user@example.com)"
-                },
-                "password": {
-                    "pattern": "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[^a-zA-Z\\d]).{8,}$",
-                    "required": true,
-                    "description": "At least 8 characters, including uppercase, lowercase, number, and special character"
-                }
-            },
             "dom_match": {
                 "url": "http://localhost:8084/customer/account/",
                 "dom_extractor": "document.querySelector('span.logged-in').innerText",
@@ -161,16 +148,7 @@
         "steps": "17",
         "require_login": false,
         "eval": {
-            "eval_type": [
-                "regex_match"
-            ],
-            "regex_match": {
-                "order_number": {
-                    "pattern": "^0000\\d{5}$",
-                    "required": true,
-                    "description": ""
-                }
-            }
+            "eval_type": []
         }
     },
     {
@@ -565,10 +543,21 @@
     },
     {
         "task_id": "30",
+        "task_description": "Update the URL key of the product \"Overnight Duffle\" to overnight-duffle-bag and save the changes",
+        "task_type": "operation",
+        "start_url": "__SHOPPING_ADMIN__",
+        "steps": "6",
+        "require_login": true,
+        "eval": {
+            "eval_type": []
+        }
+    },
+    {
+        "task_id": "31",
         "task_description": "Create a new project named :  \"Demo Website\"",
         "task_type": "operation",
         "start_url": "__PROJECT__",
-        "steps": "6",
+        "steps": "4",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -584,11 +573,11 @@
         }
     },
     {
-        "task_id": "31",
+        "task_id": "32",
         "task_description": "Update the description of project \"Demo Shop\" to \"Demo Shop is an eCommerce website based on the Magento platform.\"",
         "task_type": "operation",
         "start_url": "__PROJECT__",
-        "steps": "4",
+        "steps": "5",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -604,7 +593,7 @@
         }
     },
     {
-        "task_id": "32",
+        "task_id": "33",
         "task_description": "Disable WIKI module in Demo Shop project",
         "task_type": "operation",
         "start_url": "__PROJECT__",
@@ -624,7 +613,7 @@
         }
     },
     {
-        "task_id": "33",
+        "task_id": "34",
         "task_description": "Enable the \"News\" module in the \"Demo Shop\" project, then create a new news item titled \"Project Sponsorship Announcement\"",
         "task_type": "operation",
         "start_url": "__PROJECT__",
@@ -644,7 +633,7 @@
         }
     },
     {
-        "task_id": "34",
+        "task_id": "35",
         "task_description": "Close the Demo App project.",
         "task_type": "operation",
         "start_url": "__PROJECT__",
@@ -664,11 +653,11 @@
         }
     },
     {
-        "task_id": "35",
+        "task_id": "36",
         "task_description": "Create a new user.",
         "task_type": "form",
         "start_url": "__PROJECT__",
-        "steps": "5",
+        "steps": "14",
         "require_login": false,
         "eval": {
             "eval_type": [
@@ -684,11 +673,11 @@
         }
     },
     {
-        "task_id": "36",
+        "task_id": "37",
         "task_description": "Assign user with email \"nguyen.nguyen.6bk@gmail.com\" to project \"Demo Shop\" with role \"Developer\"",
         "task_type": "operation",
         "start_url": "__PROJECT__",
-        "steps": "14",
+        "steps": "7",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -704,11 +693,11 @@
         }
     },
     {
-        "task_id": "37",
+        "task_id": "38",
         "task_description": "Enforce a password change on next login for the user whose email is \"account.test.3@mynes.com\".",
         "task_type": "operation",
         "start_url": "__PROJECT__",
-        "steps": "7",
+        "steps": "5",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -724,11 +713,11 @@
         }
     },
     {
-        "task_id": "38",
+        "task_id": "39",
         "task_description": "Register a new user with email \"account.test.1@mynes.com\"",
         "task_type": "form",
         "start_url": "__PROJECT__",
-        "steps": "5",
+        "steps": "12",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -744,11 +733,11 @@
         }
     },
     {
-        "task_id": "39",
+        "task_id": "40",
         "task_description": "Display the \"Status\" column in the user list",
         "task_type": "operation",
         "start_url": "__PROJECT__",
-        "steps": "12",
+        "steps": "6",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -764,11 +753,11 @@
         }
     },
     {
-        "task_id": "40",
+        "task_id": "41",
         "task_description": "Create new version \"version3\" for project \"Demo Shop\"",
         "task_type": "operation",
         "start_url": "__PROJECT__",
-        "steps": "6",
+        "steps": "7",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -784,7 +773,7 @@
         }
     },
     {
-        "task_id": "41",
+        "task_id": "42",
         "task_description": "Assign feature \"3\" to version \"version2\" in project \"Demo Shop\"",
         "task_type": "operation",
         "start_url": "__PROJECT__",
@@ -804,11 +793,11 @@
         }
     },
     {
-        "task_id": "42",
+        "task_id": "43",
         "task_description": "Create a custom field named 'Environment' for the 'Bug' tracker across all projects, using a dropdown list with the values Internal, UAT, and Production.",
         "task_type": "operation",
         "start_url": "__PROJECT__",
-        "steps": "7",
+        "steps": "16",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -828,11 +817,11 @@
         }
     },
     {
-        "task_id": "43",
+        "task_id": "44",
         "task_description": "Create a custom field named \"Start Date\" of type Date in the \"Projects\" module, and make it visible to all users.",
         "task_type": "operation",
         "start_url": "__PROJECT__",
-        "steps": "16",
+        "steps": "10",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -848,11 +837,11 @@
         }
     },
     {
-        "task_id": "44",
+        "task_id": "45",
         "task_description": "Modify the workflow for Developers in the Bug Tracker so that they cannot transition issues from New to the Closed status.",
         "task_type": "operation",
         "start_url": "__PROJECT__",
-        "steps": "10",
+        "steps": "8",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -868,7 +857,7 @@
         }
     },
     {
-        "task_id": "45",
+        "task_id": "46",
         "task_description": "Configure the workflow to allow users with the \"Developer\" role to transition a bug from the \"Rejected\" status back to \"In Progress\".",
         "task_type": "operation",
         "start_url": "__PROJECT__",
@@ -888,7 +877,7 @@
         }
     },
     {
-        "task_id": "46",
+        "task_id": "47",
         "task_description": "Configure the workflow to allow users with the \"Manager\" role to transition issues in the \"Feature\" tracker from the \"Closed\" status back to \"New\".",
         "task_type": "operation",
         "start_url": "__PROJECT__",
@@ -908,11 +897,11 @@
         }
     },
     {
-        "task_id": "47",
+        "task_id": "48",
         "task_description": "Create a new role named \"QC\", and configure the workflow so that users with this role can set issues in the \"Bug\" tracker to the \"In Progress\" status.",
         "task_type": "operation",
         "start_url": "__PROJECT__",
-        "steps": "8",
+        "steps": "18",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -928,11 +917,11 @@
         }
     },
     {
-        "task_id": "48",
+        "task_id": "49",
         "task_description": "Rename role \"Testing\" to \"QA\".",
         "task_type": "operation",
         "start_url": "__PROJECT__",
-        "steps": "18",
+        "steps": "5",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -948,7 +937,7 @@
         }
     },
     {
-        "task_id": "49",
+        "task_id": "50",
         "task_description": "Create a new status \"Pending\" for Issue",
         "task_type": "operation",
         "start_url": "__PROJECT__",
@@ -968,11 +957,11 @@
         }
     },
     {
-        "task_id": "50",
+        "task_id": "51",
         "task_description": "Create a custom field named \"Test Case Link\" of type Link in the Bug Tracker module, visible to all users and applicable to all projects.",
         "task_type": "operation",
         "start_url": "__PROJECT__",
-        "steps": "5",
+        "steps": "10",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -988,11 +977,11 @@
         }
     },
     {
-        "task_id": "51",
+        "task_id": "52",
         "task_description": "Move the \"Closed\" issue status to the last position in the \"Issue statuses\" board configuration.",
         "task_type": "operation",
         "start_url": "__PROJECT__",
-        "steps": "10",
+        "steps": "4",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -1008,7 +997,7 @@
         }
     },
     {
-        "task_id": "52",
+        "task_id": "53",
         "task_description": "Create a new quotation for customer \"Abigail Peterson\" with 1 unit of the product \"Cheese Burger\"",
         "task_type": "operation",
         "start_url": "__ERP__",
@@ -1028,11 +1017,11 @@
         }
     },
     {
-        "task_id": "53",
+        "task_id": "54",
         "task_description": "Convert quotation \"S00003\" to a confirmed sales order.",
         "task_type": "operation",
         "start_url": "__ERP__",
-        "steps": "4",
+        "steps": "5",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -1048,11 +1037,11 @@
         }
     },
     {
-        "task_id": "54",
+        "task_id": "55",
         "task_description": "Create a new product named 'Pizza Pineapple' and set its sale price to 10 dollars.",
         "task_type": "operation",
         "start_url": "__ERP__",
-        "steps": "5",
+        "steps": "9",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -1068,11 +1057,11 @@
         }
     },
     {
-        "task_id": "55",
+        "task_id": "56",
         "task_description": "Create a new restaurant floor layout named 'Ground Floor' for Restaurant",
         "task_type": "operation",
         "start_url": "__ERP__",
-        "steps": "9",
+        "steps": "10",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -1088,7 +1077,7 @@
         }
     },
     {
-        "task_id": "56",
+        "task_id": "57",
         "task_description": "Add a new table named 'Table 5' to floor 'Second Floor' of NYC Shop",
         "task_type": "operation",
         "start_url": "__ERP__",
@@ -1108,11 +1097,11 @@
         }
     },
     {
-        "task_id": "57",
+        "task_id": "58",
         "task_description": "Create a Point of Sale named 'Purple Shop'",
         "task_type": "operation",
         "start_url": "__ERP__",
-        "steps": "10",
+        "steps": "8",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -1128,11 +1117,11 @@
         }
     },
     {
-        "task_id": "58",
+        "task_id": "59",
         "task_description": "Start a new Point of Sale session for \"New Shop\"",
         "task_type": "operation",
         "start_url": "__ERP__",
-        "steps": "8",
+        "steps": "7",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -1148,11 +1137,11 @@
         }
     },
     {
-        "task_id": "59",
+        "task_id": "60",
         "task_description": "Close the current PoS session for 'NM Shop', automatically validating any open or unpaid orders.",
         "task_type": "operation",
         "start_url": "__ERP__",
-        "steps": "7",
+        "steps": "12",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -1168,11 +1157,11 @@
         }
     },
     {
-        "task_id": "60",
+        "task_id": "61",
         "task_description": "Split the bill for \"Table 3\" in the Main Floor of the \"Restaurant\" by moving the item 'Cheese Burger' to a separate bill.",
         "task_type": "operation",
         "start_url": "__ERP__",
-        "steps": "12",
+        "steps": "8",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -1188,11 +1177,11 @@
         }
     },
     {
-        "task_id": "61",
+        "task_id": "62",
         "task_description": "Create a new lead for customer with email \"account.test.2@mynes.com\" interested in 'Website Design Services'.",
         "task_type": "operation",
         "start_url": "__ERP__",
-        "steps": "8",
+        "steps": "7",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -1208,7 +1197,7 @@
         }
     },
     {
-        "task_id": "62",
+        "task_id": "63",
         "task_description": "Assign a salesperson \"Marc Demo\" to a lead \"Website Development\"",
         "task_type": "operation",
         "start_url": "__ERP__",
@@ -1228,11 +1217,11 @@
         }
     },
     {
-        "task_id": "63",
+        "task_id": "64",
         "task_description": "Create a regular invoice from the sales order with reference number S00021.",
         "task_type": "operation",
         "start_url": "__ERP__",
-        "steps": "7",
+        "steps": "8",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -1248,7 +1237,7 @@
         }
     },
     {
-        "task_id": "64",
+        "task_id": "65",
         "task_description": "Register \"Cash Restaurant\" for invoice \"INV/2025/00005\"",
         "task_type": "operation",
         "start_url": "__ERP__",
@@ -1268,7 +1257,7 @@
         }
     },
     {
-        "task_id": "65",
+        "task_id": "66",
         "task_description": "Create a new employee profile named \"Employee 1\" with the email \"account.test.5@mynes.com\".",
         "task_type": "operation",
         "start_url": "__ERP__",
@@ -1288,11 +1277,11 @@
         }
     },
     {
-        "task_id": "66",
+        "task_id": "67",
         "task_description": "Update the employee named \"Employee 2\" by setting their Job Position to \"Web Developer\" using the Job Position placeholder field.",
         "task_type": "operation",
         "start_url": "__ERP__",
-        "steps": "8",
+        "steps": "9",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -1308,11 +1297,11 @@
         }
     },
     {
-        "task_id": "67",
+        "task_id": "68",
         "task_description": "Create new job position \"QC Manager\"",
         "task_type": "operation",
         "start_url": "__ERP__",
-        "steps": "9",
+        "steps": "10",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -1328,11 +1317,11 @@
         }
     },
     {
-        "task_id": "68",
+        "task_id": "69",
         "task_description": "Create new employment type \"Internship\"",
         "task_type": "operation",
         "start_url": "__ERP__",
-        "steps": "10",
+        "steps": "9",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -1348,11 +1337,11 @@
         }
     },
     {
-        "task_id": "69",
+        "task_id": "70",
         "task_description": "Move \"Full-Time\" to the first position in the list of employment types.",
         "task_type": "operation",
         "start_url": "__ERP__",
-        "steps": "9",
+        "steps": "8",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -1368,7 +1357,7 @@
         }
     },
     {
-        "task_id": "70",
+        "task_id": "71",
         "task_description": "Allocate 2 days of Paid Time Off exclusively to Cherry Nguyen.",
         "task_type": "operation",
         "start_url": "__ERP__",
@@ -1388,7 +1377,7 @@
         }
     },
     {
-        "task_id": "71",
+        "task_id": "72",
         "task_description": "Navigate to Paul Williams’s org chart and view direct reports.",
         "task_type": "operation",
         "start_url": "__ERP__",
@@ -1405,7 +1394,7 @@
         }
     },
     {
-        "task_id": "72",
+        "task_id": "73",
         "task_description": "Create a new Time off type named 'Marriage Leave'.",
         "task_type": "operation",
         "start_url": "__ERP__",
@@ -1425,7 +1414,7 @@
         }
     },
     {
-        "task_id": "73",
+        "task_id": "74",
         "task_description": "Approve all time off requests submitted by Anita Olivier.",
         "task_type": "operation",
         "start_url": "__ERP__",
@@ -1445,11 +1434,11 @@
         }
     },
     {
-        "task_id": "74",
+        "task_id": "75",
         "task_description": "Activate the Project module from the Apps menu",
         "task_type": "operation",
         "start_url": "__ERP__",
-        "steps": "8",
+        "steps": "10",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -1465,11 +1454,11 @@
         }
     },
     {
-        "task_id": "75",
+        "task_id": "76",
         "task_description": "Change the email address of \"Alaska Company\" to email \"account.test.4@mynes.com\".",
         "task_type": "operation",
         "start_url": "__ERP__",
-        "steps": "10",
+        "steps": "11",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -1485,11 +1474,11 @@
         }
     },
     {
-        "task_id": "76",
+        "task_id": "77",
         "task_description": "Create a stock adjustment for product 'Pizza Starfruit' with quantity 200",
         "task_type": "operation",
         "start_url": "__ERP__",
-        "steps": "11",
+        "steps": "8",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -1505,11 +1494,11 @@
         }
     },
     {
-        "task_id": "77",
+        "task_id": "78",
         "task_description": "Duplicate the sales order S00006",
         "task_type": "operation",
         "start_url": "__ERP__",
-        "steps": "8",
+        "steps": "6",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -1525,11 +1514,11 @@
         }
     },
     {
-        "task_id": "78",
+        "task_id": "79",
         "task_description": "Create a new warehouse location named 'Freezer Room'.",
         "task_type": "operation",
         "start_url": "__ERP__",
-        "steps": "6",
+        "steps": "8",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -1545,11 +1534,11 @@
         }
     },
     {
-        "task_id": "79",
+        "task_id": "80",
         "task_description": "Cancel the quotation S00004",
         "task_type": "operation",
         "start_url": "__ERP__",
-        "steps": "8",
+        "steps": "6",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -1565,7 +1554,7 @@
         }
     },
     {
-        "task_id": "80",
+        "task_id": "81",
         "task_description": "Change the stage of opportunity 'AI Agent Development' to 'Won'.",
         "task_type": "operation",
         "start_url": "__ERP__",
@@ -1585,11 +1574,11 @@
         }
     },
     {
-        "task_id": "81",
+        "task_id": "82",
         "task_description": "Terminate employee 'Employee 4' effective today.",
         "task_type": "operation",
         "start_url": "__ERP__",
-        "steps": "6",
+        "steps": "8",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -1605,11 +1594,11 @@
         }
     },
     {
-        "task_id": "82",
+        "task_id": "83",
         "task_description": "Send a message to user \"Alice Lam\" with the content \"Please review the sales report.\"",
         "task_type": "operation",
         "start_url": "__ERP__",
-        "steps": "8",
+        "steps": "4",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -1625,7 +1614,7 @@
         }
     },
     {
-        "task_id": "83",
+        "task_id": "84",
         "task_description": "Start a new channel named \"Dev Team Chat\".",
         "task_type": "operation",
         "start_url": "__ERP__",
@@ -1645,11 +1634,11 @@
         }
     },
     {
-        "task_id": "84",
+        "task_id": "85",
         "task_description": "Add Alice Lam and Marc Demo to an existing channel called 'QC Team'.",
         "task_type": "operation",
         "start_url": "__ERP__",
-        "steps": "4",
+        "steps": "6",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -1665,11 +1654,11 @@
         }
     },
     {
-        "task_id": "85",
+        "task_id": "86",
         "task_description": "Send a message \"Standup at 9 AM\" in channel \"Company Portal\".",
         "task_type": "operation",
         "start_url": "__ERP__",
-        "steps": "6",
+        "steps": "4",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -1685,11 +1674,11 @@
         }
     },
     {
-        "task_id": "86",
+        "task_id": "87",
         "task_description": "React to the latest message in 'Company Portal' with a 'thumbs up' emoji.",
         "task_type": "operation",
         "start_url": "__ERP__",
-        "steps": "4",
+        "steps": "5",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -1705,7 +1694,7 @@
         }
     },
     {
-        "task_id": "87",
+        "task_id": "88",
         "task_description": "Mention user \"Marc Demo\" in a message inside channel \"Company Portal\".",
         "task_type": "operation",
         "start_url": "__ERP__",
@@ -1725,11 +1714,11 @@
         }
     },
     {
-        "task_id": "88",
+        "task_id": "89",
         "task_description": "Open the latest pinned message in \"Company Portal.\"",
         "task_type": "operation",
         "start_url": "__ERP__",
-        "steps": "5",
+        "steps": "4",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -1742,11 +1731,11 @@
         }
     },
     {
-        "task_id": "89",
+        "task_id": "90",
         "task_description": "Check the status of the sales record with reference S00002.",
         "task_type": "lookup",
         "start_url": "__ERP__",
-        "steps": "4",
+        "steps": "3",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -1759,11 +1748,11 @@
         }
     },
     {
-        "task_id": "90",
+        "task_id": "91",
         "task_description": "Check the untaxed total amount of sales order S00004.",
         "task_type": "lookup",
         "start_url": "__ERP__",
-        "steps": "3",
+        "steps": "6",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -1776,11 +1765,11 @@
         }
     },
     {
-        "task_id": "91",
+        "task_id": "92",
         "task_description": "Check the weight of the product \"Office Chair Black.\"",
         "task_type": "lookup",
         "start_url": "__ERP__",
-        "steps": "6",
+        "steps": "8",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -1793,11 +1782,11 @@
         }
     },
     {
-        "task_id": "92",
+        "task_id": "93",
         "task_description": "Check the shipping policy of sales order S00004.",
         "task_type": "lookup",
         "start_url": "__ERP__",
-        "steps": "8",
+        "steps": "6",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -1810,11 +1799,11 @@
         }
     },
     {
-        "task_id": "93",
+        "task_id": "94",
         "task_description": "View the most recent school attended by Tina Williamson.",
         "task_type": "lookup",
         "start_url": "__ERP__",
-        "steps": "6",
+        "steps": "8",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -1827,11 +1816,11 @@
         }
     },
     {
-        "task_id": "94",
+        "task_id": "95",
         "task_description": "View the work address of employee \"Randall Lewis.\"",
         "task_type": "lookup",
         "start_url": "__ERP__",
-        "steps": "8",
+        "steps": "6",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -1844,11 +1833,11 @@
         }
     },
     {
-        "task_id": "95",
+        "task_id": "96",
         "task_description": "Check the number of parental leave days allocated to Ronnie Hart.",
         "task_type": "lookup",
         "start_url": "__ERP__",
-        "steps": "6",
+        "steps": "4",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -1861,11 +1850,11 @@
         }
     },
     {
-        "task_id": "96",
+        "task_id": "97",
         "task_description": "Convert the lead named \"Website Development\" into an opportunity and set the expected revenue to $50,000.",
         "task_type": "operation",
         "start_url": "__ERP__",
-        "steps": "4",
+        "steps": "10",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -1881,7 +1870,7 @@
         }
     },
     {
-        "task_id": "97",
+        "task_id": "98",
         "task_description": "Transfer 10 units of \"Office Chair Black\" from  POS/Shop to WH/Stock. ",
         "task_type": "operation",
         "start_url": "__ERP__",
@@ -1901,11 +1890,11 @@
         }
     },
     {
-        "task_id": "98",
+        "task_id": "99",
         "task_description": "Apply a 10% discount to the product \"Pizza Starfruit\" in quotation S00028.",
         "task_type": "operation",
         "start_url": "__ERP__",
-        "steps": "10",
+        "steps": "6",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -1918,11 +1907,11 @@
         }
     },
     {
-        "task_id": "99",
+        "task_id": "100",
         "task_description": "Change the tags of the opportunity titled \"5 VP Chairs\" to \"Product\"",
         "task_type": "operation",
         "start_url": "__ERP__",
-        "steps": "6",
+        "steps": "8",
         "require_login": true,
         "eval": {
             "eval_type": [
@@ -1938,86 +1927,131 @@
         }
     },
     {
-        "task_id": "100",
-        "task_description": "Add \"Overnight Duffle\" to comparison, then add \"Strive Shoulder Pack\" to comparison, and open the Compare Products page.",
-        "task_type": "operation",
-        "start_url": "__SHOPPING__",
-        "steps": "8",
-        "require_login": true,
-        "eval": {
-            "eval_type": []
-        }
-    },
-    {
         "task_id": "101",
-        "task_description": "add a new shipping address, and set it as the default shipping address.",
+        "task_description": "Add \"Overnight Duffle\" to comparison, then add \"Strive Shoulder Pack\" to comparison, and open the Compare Products page.",
         "task_type": "operation",
         "start_url": "__SHOPPING__",
         "steps": "9",
         "require_login": true,
         "eval": {
-            "eval_type": []
+            "eval_type": [
+                "dom_match"
+            ],
+            "dom_match": {
+                "url": "__SHOPPING__/catalog/product_compare/",
+                "dom_extractor": "document.querySelector('tbody').innerText",
+                "match_type": "contains",
+                "match_value": [
+                    "Strive Shoulder Pack",
+                    "Overnight Duffle"
+                ],
+                "description": "Both compared products appear in the table"
+            }
         }
     },
     {
         "task_id": "102",
-        "task_description": "Update the street of my default billing address to '2222 Sai Gon'.",
-        "task_type": "operation",
+        "task_description": "Add a new shipping address: 55 Nguyen Van Cu Street, Ho Chi Minh City, 70000, Vietnam, with the phone number 0912345678, and set it as the default shipping address.",
+        "task_type": "form",
         "start_url": "__SHOPPING__",
         "steps": "14",
         "require_login": true,
         "eval": {
-            "eval_type": []
+            "eval_type": [
+                "dom_match"
+            ],
+            "dom_match": {
+                "url": "__LMS__/customer/address/",
+                "dom": "document.querySelector('.box-address-shipping address')?.innerText",
+                "match_type": "contains",
+                "match_value": [
+                    "55 Nguyen Van Cu",
+                    "Ho Chi Minh",
+                    "70000",
+                    "Vietnam",
+                    "0912345678"
+                ]
+            }
         }
     },
     {
         "task_id": "103",
-        "task_description": "Add a product review for 'Didi Sport Watch' with a 4-star rating and a short comment.",
+        "task_description": "Update the street of my default billing address to \"2222 Sai Gon\".",
         "task_type": "operation",
         "start_url": "__SHOPPING__",
         "steps": "7",
         "require_login": true,
         "eval": {
-            "eval_type": []
+            "eval_type": [
+                "dom_match"
+            ],
+            "dom_match": {
+                "url": "__SHOPPING__/customer/address/edit/id/3/",
+                "dom_extractor": "document.querySelector('#street_1').value",
+                "match_type": "exact",
+                "match_value": "2222 Sai Gon",
+                "description": "Verify the street of the default billing address is updated to '2222 Sai Gon'."
+            }
         }
     },
     {
         "task_id": "104",
-        "task_description": "Print Order 000000008.",
+        "task_description": "Add a product review for \"Didi Sport Watch\" with a 4-star rating and a short comment.",
         "task_type": "operation",
         "start_url": "__SHOPPING__",
         "steps": "8",
         "require_login": true,
         "eval": {
-            "eval_type": []
+            "eval_type": [
+                "dom_match"
+            ],
+            "dom_match": {
+                "url": "last",
+                "dom_extractor": "document.querySelector('.message-success.success.message')?.innerText.trim()",
+                "match_type": "exact",
+                "match_value": "You submitted your review for moderation.",
+                "description": "Verify review submission success message after adding a review for 'Didi Sport Watch'."
+            }
         }
     },
     {
         "task_id": "105",
+        "task_description": "Print Order 000000008.",
+        "task_type": "operation",
+        "start_url": "__SHOPPING__",
+        "steps": "5",
+        "require_login": true,
+        "eval": {
+            "eval_type": [
+                "url_match"
+            ],
+            "url_match": {
+                "match_type": "exact",
+                "match_value": "__SHOPPING__/sales/order/print/order_id/8/"
+            }
+        }
+    },
+    {
+        "task_id": "106",
         "task_description": "View details of the last Men’s Indoor Short.",
         "task_type": "operation",
         "start_url": "__SHOPPING__",
         "steps": "5",
         "require_login": false,
         "eval": {
-            "eval_type": []
-        }
-    },
-    {
-        "task_id": "106",
-        "task_description": "Empty the shopping cart and add three products:  \"Deirdre Relaxed-Fit\", \"Sylvia Capri\", and \"Aeon Capri\"  to cart",
-        "task_type": "operation",
-        "start_url": "__SHOPPING__",
-        "steps": "5",
-        "require_login": false,
-        "eval": {
-            "eval_type": []
+            "eval_type": [
+                "url_match"
+            ],
+            "url_match": {
+                "match_type": "exact",
+                "match_value": "__SHOPPING__/pierce-gym-short.html"
+            }
         }
     },
     {
         "task_id": "107",
-        "task_description": "View the highest-priced product detail page in Women > Pants.",
-        "task_type": "lookup",
+        "task_description": "Empty the shopping cart and add three products:  \"Deirdre Relaxed-Fit\", \"Sylvia Capri\", and \"Aeon Capri\"  to cart",
+        "task_type": "operation",
         "start_url": "__SHOPPING__",
         "steps": "16",
         "require_login": false,
@@ -2027,464 +2061,872 @@
     },
     {
         "task_id": "108",
-        "task_description": "Find all products with keyword \"short\" priced between $40 and $42.",
+        "task_description": "View the lowest-priced product detail page in Women > Pants.",
         "task_type": "lookup",
-        "start_url": "__SHOPPING_ADMIN__",
+        "start_url": "__SHOPPING__",
         "steps": "6",
-        "require_login": true,
+        "require_login": false,
         "eval": {
-            "eval_type": []
+            "eval_type": [
+                "url_match"
+            ],
+            "url_match": {
+                "match_type": "contains",
+                "match_value": "karmen-yoga-pant.html"
+            }
         }
     },
     {
         "task_id": "109",
-        "task_description": "Navigate to Returns and Replacements service",
+        "task_description": "Find all products with keyword \"short\" priced between $40 and $42.",
         "task_type": "lookup",
-        "start_url": "__SHOPPING__",
+        "start_url": "__SHOPPING_ADMIN__",
         "steps": "7",
-        "require_login": false,
+        "require_login": true,
         "eval": {
-            "eval_type": []
+            "eval_type": [
+                "dom_match"
+            ],
+            "dom_match": {
+                "url": "last",
+                "dom_extractor": "document.querySelector('.admin__control-support-text').innerText",
+                "match_type": "exact",
+                "match_value": "30 records found",
+                "description": "Verify product search results for keyword 'short' priced between $40 and $42"
+            }
         }
     },
     {
         "task_id": "110",
-        "task_description": "Navigate to the default shipping address of customer \"Veronica Costello.\"",
+        "task_description": "Navigate to Returns and Replacements service",
         "task_type": "lookup",
-        "start_url": "__SHOPPING_ADMIN__",
-        "steps": "3",
-        "require_login": true,
+        "start_url": "__SHOPPING__",
+        "steps": "1",
+        "require_login": false,
         "eval": {
-            "eval_type": []
+            "eval_type": [
+                "url_match"
+            ],
+            "url_match": {
+                "match_type": "exact",
+                "match_value": "__SHOPPING__/customer-service"
+            }
         }
     },
     {
         "task_id": "111",
-        "task_description": "Update the approval status of rating \"291\" to Not Approved.",
-        "task_type": "operation",
+        "task_description": "Navigate to the default shipping address of customer \"Veronica Costello.\"",
+        "task_type": "lookup",
         "start_url": "__SHOPPING_ADMIN__",
         "steps": "6",
         "require_login": true,
         "eval": {
-            "eval_type": []
+            "eval_type": [
+                "url_match",
+                "dom_match"
+            ],
+            "url_match": {
+                "match_type": "contains",
+                "match_value": "customer/index/edit/id/1"
+            },
+            "dom_match": {
+                "url": "last",
+                "dom_extractor": "document.querySelector('.address-information.shipping-address .address_caption').innerText",
+                "match_type": "exact",
+                "match_value": "Default Shipping Address",
+                "description": "Verify the caption of the default shipping address block for customer 'Veronica Costello'."
+            }
         }
     },
     {
         "task_id": "112",
-        "task_description": "Create a customer group named \"Wholesale-10\", then assign the customer \"account.test.5@mynes.com\" to this group.\n.",
+        "task_description": "Update the approval status of rating \"291\" to 'Not Approved'.",
         "task_type": "operation",
         "start_url": "__SHOPPING_ADMIN__",
         "steps": "7",
         "require_login": true,
         "eval": {
-            "eval_type": []
+            "eval_type": [
+                "dom_match"
+            ],
+            "dom_match": {
+                "url": "__SHOPPING_ADMIN__/review/product/edit/id/291",
+                "dom_extractor": "document.querySelector('#status_id option:checked').innerText",
+                "match_type": "exact",
+                "match_value": "Not Approved",
+                "description": "Verify selected review status equals 'Not Approved' for review ID 291."
+            }
         }
     },
     {
         "task_id": "113",
-        "task_description": "Create a configurable product \"Aether Gym Pant\" with attributes Size (S, M, L) and Color (Black, Gray), priced at $55.",
-        "task_type": "operation",
+        "task_description": "Create a customer group named \"Wholesale-10\", then assign the customer \"account.test.5@mynes.com\" to this group.\n.",
+        "task_type": "form",
         "start_url": "__SHOPPING_ADMIN__",
         "steps": "10",
         "require_login": true,
         "eval": {
-            "eval_type": []
+            "eval_type": [
+                "dom_match"
+            ],
+            "dom_match": {
+                "url": "last",
+                "dom_extractor": "([...document.querySelectorAll('tbody tr')].some(r => r.cells[3]?.innerText.trim() === 'account.test.5@mynes.com' && r.cells[4]?.innerText.trim() === 'Wholesale-10')) ? '1' : '0'",
+                "match_type": "exact",
+                "match_value": "1",
+                "description": "Verify there is a table row where Email = 'account.test.5@mynes.com' and Group = 'Wholesale-10'."
+            }
         }
     },
     {
         "task_id": "114",
-        "task_description": "Enable Cash On Delivery Payment method",
-        "task_type": "operation",
+        "task_description": "Create a configurable product \"Aether Gym Short\" with attributes Size (S, M, L) and Color (Black, Gray), priced at $55.",
+        "task_type": "form",
         "start_url": "__SHOPPING_ADMIN__",
         "steps": "20",
         "require_login": true,
         "eval": {
-            "eval_type": []
+            "eval_type": [
+                "dom_match"
+            ],
+            "dom_match": {
+                "url": "last",
+                "dom_extractor": "JSON.stringify(Array.from(document.querySelectorAll('table.admin__dynamic-rows.data-grid tbody tr.data-row')).map(r => r.querySelector('td[data-index=\"name_container\"] .control-table-text span[data-index=\"name_text\"]').innerText.trim()))",
+                "match_type": "exact",
+                "match_value": "[\"Aether Gym Short-Black-S\",\"Aether Gym Short-Black-M\",\"Aether Gym Short-Black-L\",\"Aether Gym Short-Gray-S\",\"Aether Gym Short-Gray-M\",\"Aether Gym Short-Gray-L\"]",
+                "description": "Verify all 6 generated simple products for configurable item."
+            }
         }
     },
     {
         "task_id": "115",
-        "task_description": "View the Coupons Usage Report for the date range from yesterday to today",
+        "task_description": "Enable Cash On Delivery Payment method",
+        "task_type": "operation",
+        "start_url": "__SHOPPING_ADMIN__",
+        "steps": "8",
+        "require_login": true,
+        "eval": {
+            "eval_type": [
+                "dom_match"
+            ],
+            "dom_match": {
+                "url": "last",
+                "dom_extractor": "document.querySelector('#payment_us_cashondelivery_active').value",
+                "match_type": "exact",
+                "match_value": "1",
+                "description": "Verify Cash On Delivery method is enabled (value=1)."
+            }
+        }
+    },
+    {
+        "task_id": "116",
+        "task_description": "View the Coupons Report for the date range from March 10, 2025 to March 31, 2025.",
         "task_type": "lookup",
         "start_url": "__SHOPPING_ADMIN__",
         "steps": "8",
         "require_login": true,
         "eval": {
-            "eval_type": []
-        }
-    },
-    {
-        "task_id": "116",
-        "task_description": "Show all products with color Lavender.",
-        "task_type": "lookup",
-        "start_url": "__SHOPPING_ADMIN__",
-        "steps": "7",
-        "require_login": true,
-        "eval": {
-            "eval_type": []
+            "eval_type": [
+                "dom_match"
+            ],
+            "dom_match": {
+                "url": "last",
+                "dom_extractor": "((document.querySelector('.page-title')?.innerText.trim() === 'Coupons Report') && (document.querySelector('#sales_report_from')?.value.trim() === '3/10/25') && (document.querySelector('#sales_report_to')?.value.trim() === '3/31/25')) ? '1' : '0'",
+                "match_type": "exact",
+                "match_value": "1",
+                "description": "Verify the Coupons Report page is displayed and the date range is correctly set to March 10–31, 2025."
+            }
         }
     },
     {
         "task_id": "117",
-        "task_description": "Show all female customers.",
+        "task_description": "Show all products with color Lavender.",
         "task_type": "lookup",
         "start_url": "__SHOPPING_ADMIN__",
         "steps": "10",
         "require_login": true,
         "eval": {
-            "eval_type": []
+            "eval_type": [
+                "dom_match"
+            ],
+            "dom_match": {
+                "url": "last",
+                "dom_extractor": "document.querySelector('.admin__control-support-text').innerText",
+                "match_type": "exact",
+                "match_value": "5 records found",
+                "description": "show all products with color Lavender"
+            }
         }
     },
     {
         "task_id": "118",
+        "task_description": "Show all female customers.",
+        "task_type": "lookup",
+        "start_url": "__SHOPPING_ADMIN__",
+        "steps": "6",
+        "require_login": true,
+        "eval": {
+            "eval_type": [
+                "url_match",
+                "dom_match"
+            ],
+            "url_match": {
+                "match_type": "contains",
+                "match_value": "customer/index/index"
+            },
+            "dom_match": {
+                "url": "last",
+                "dom_extractor": "document.querySelector('.admin__control-support-text').innerText",
+                "match_type": "exact",
+                "match_value": "1 records found",
+                "description": "Customer grid is filtered to show female customers."
+            }
+        }
+    },
+    {
+        "task_id": "119",
         "task_description": "Change the order status from \"Suspected Fraud\" to \"Suspected Fraud (Untrusted)\".",
         "task_type": "operation",
         "start_url": "__SHOPPING_ADMIN__",
         "steps": "6",
         "require_login": true,
         "eval": {
-            "eval_type": []
-        }
-    },
-    {
-        "task_id": "119",
-        "task_description": "Change the payment method name from \"Bank Transfer Payment\" to \"Offline Bank Payment\".",
-        "task_type": "operation",
-        "start_url": "__SHOPPING_ADMIN__",
-        "steps": "6",
-        "require_login": true,
-        "eval": {
-            "eval_type": []
+            "eval_type": [
+                "dom_match"
+            ],
+            "dom_match": {
+                "url": "last",
+                "dom_extractor": "Array.from(document.querySelectorAll('table tbody tr')).find(r => r.querySelector('.col-status')?.innerText.trim() === 'fraud')?.querySelector('.col-label')?.innerText.trim()",
+                "match_type": "exact",
+                "match_value": "Suspected Fraud (Untrusted)",
+                "description": "Verify the order status changed from 'Suspected Fraud' to 'Suspected Fraud (Untrusted)'."
+            }
         }
     },
     {
         "task_id": "120",
-        "task_description": "Change the Admin Session Lifetime to 12 hours.",
+        "task_description": "Change the payment method name from \"Bank Transfer Payment\" to \"Offline Bank Payment\".",
         "task_type": "operation",
         "start_url": "__SHOPPING_ADMIN__",
         "steps": "10",
         "require_login": true,
         "eval": {
-            "eval_type": []
+            "eval_type": [
+                "url_match",
+                "dom_match"
+            ],
+            "url_match": {
+                "match_type": "contains",
+                "match_value": [
+                    "admin/system_config/edit",
+                    "section/payment"
+                ]
+            },
+            "dom_match": {
+                "url": "last",
+                "dom_extractor": "document.querySelector('#payment_us_banktransfer_title').value",
+                "match_type": "exact",
+                "match_value": "Offline Bank Payment",
+                "description": "Verify the payment method name was updated."
+            }
         }
     },
     {
         "task_id": "121",
-        "task_description": "Edit the status to \"Not Approved\" for the review with content \"These looked really ugly on my feet…\"",
+        "task_description": "Change the Admin Session Lifetime to 12 hours.",
         "task_type": "operation",
         "start_url": "__SHOPPING_ADMIN__",
         "steps": "8",
         "require_login": true,
         "eval": {
-            "eval_type": []
+            "eval_type": [
+                "dom_match"
+            ],
+            "dom_match": {
+                "url": "last",
+                "dom_extractor": "document.querySelector('#admin_security_session_lifetime').value",
+                "match_type": "exact",
+                "match_value": "43200",
+                "description": "Verify Admin Session Lifetime is set to 12 hours (43200 seconds)."
+            }
         }
     },
     {
         "task_id": "122",
-        "task_description": "Add a new user using the email \"account.test.2@mynes.com\" and assign \"account.test.1@mynes.com\" as the manager.",
+        "task_description": "Edit the status to \"Not Approved\" for the review with content \"These looked really ugly on my feet…\"",
         "task_type": "operation",
-        "start_url": "__LMS__",
+        "start_url": "__SHOPPING_ADMIN__",
         "steps": "6",
         "require_login": true,
         "eval": {
-            "eval_type": []
+            "eval_type": [
+                "dom_match"
+            ],
+            "dom_match": {
+                "url": "__SHOPPING_ADMIN__/review/product/edit/id/299",
+                "dom_extractor": "document.querySelector('#status_id option:checked').innerText",
+                "match_type": "exact",
+                "match_value": "Not Approved",
+                "description": "Verify selected review status equals 'Not Approved' for review ID 299."
+            }
         }
     },
     {
         "task_id": "123",
-        "task_description": "Log in as employee using username \"qc.lead.1\" and password \"Admin@123\", then log out.",
-        "task_type": "operation",
+        "task_description": "Create user \"account.test.2@mynes.com \", set its manager to \"account.test.1@mynes.com \", then open its Edit page.",
+        "task_type": "form",
         "start_url": "__LMS__",
         "steps": "10",
-        "require_login": false,
+        "require_login": true,
         "eval": {
-            "eval_type": []
+            "eval_type": [
+                "dom_match"
+            ],
+            "dom_match": {
+                "url": "last",
+                "dom_extractor": "(document.querySelector('#email')?.value === 'account.test.2@mynes.com' && document.querySelector('#txtManager')?.value === 'qc ONE') ? '1' : '0'",
+                "match_type": "exact",
+                "match_value": "1",
+                "description": "Ensure email and manager fields are correctly set for the newly created user."
+            }
         }
     },
     {
         "task_id": "124",
+        "task_description": "Log in as employee using username \"qc.lead.1\" and password \"Admin@123\"",
+        "task_type": "form",
+        "start_url": "__LMS__",
+        "steps": "3",
+        "require_login": false,
+        "eval": {
+            "eval_type": [
+                "dom_match"
+            ],
+            "dom_match": {
+                "url": "last",
+                "dom_extractor": "document.querySelector('ul.nav.pull-right a.brand')?.innerText.trim()",
+                "match_type": "exact",
+                "match_value": "qc ONE",
+                "description": "Verify that the logged-in username 'qc ONE' is displayed in the top-right navigation bar."
+            }
+        }
+    },
+    {
+        "task_id": "125",
         "task_description": "Assign account.test.1@mynes.com as the manager of account.test.3@mynes.com.",
         "task_type": "operation",
         "start_url": "__LMS__",
         "steps": "6",
         "require_login": true,
         "eval": {
-            "eval_type": []
-        }
-    },
-    {
-        "task_id": "125",
-        "task_description": "Submit a new two-day leave request from next Monday to next Tuesday.",
-        "task_type": "operation",
-        "start_url": "__LMS__",
-        "steps": "6",
-        "require_login": true,
-        "eval": {
-            "eval_type": []
+            "eval_type": [
+                "dom_match"
+            ],
+            "dom_match": {
+                "url": "__LMS__/users/edit/3",
+                "dom_extractor": "document.querySelector('#txtManager')?.value",
+                "match_type": "exact",
+                "match_value": "qc ONE",
+                "description": "Verify that user ID 3 has manager 'qc ONE'."
+            }
         }
     },
     {
         "task_id": "126",
-        "task_description": "Submit a half-day leave request for next week Friday morning",
-        "task_type": "operation",
+        "task_description": "Submit a two-day \"Paid leave\" request from Dec 6 to Dec 7, 2025, then open its edit page.",
+        "task_type": "form",
         "start_url": "__LMS__",
         "steps": "8",
         "require_login": true,
         "eval": {
-            "eval_type": []
+            "eval_type": [
+                "dom_match"
+            ],
+            "dom_match": {
+                "url": "last",
+                "dom_extractor": "(document.querySelector('input[name=\"startdate\"]')?.value === '06/12/2025' && document.querySelector('input[name=\"enddate\"]')?.value === '06/13/2025' && document.querySelector('select[name=\"type\"] option:checked')?.innerText.trim().toLowerCase() === 'paid leave') ? '1' : '0'",
+                "match_type": "exact",
+                "match_value": "1",
+                "description": "Verify the two-day Paid leave request (Dec 6–7, 2025) is correctly shown in the edit page."
+            }
         }
     },
     {
         "task_id": "127",
-        "task_description": "View the list of submitted leave requests.",
-        "task_type": "operation",
+        "task_description": "Submit a half-day 'Paid leave' request for the morning of January 16, 2026, and then open its detail page.",
+        "task_type": "form",
         "start_url": "__LMS__",
         "steps": "10",
         "require_login": true,
         "eval": {
-            "eval_type": []
+            "eval_type": [
+                "dom_match"
+            ],
+            "dom_match": {
+                "url": "last",
+                "dom_extractor": "(document.querySelector('input[name=\"startdate\"]')?.value === '01/16/2026' && document.querySelector('input[name=\"enddate\"]')?.value === '01/16/2026' && document.querySelector('select[name=\"type\"] option:checked')?.innerText.trim().toLowerCase() === 'paid leave' && document.querySelector('select[name=\"enddatetype\"] option:checked')?.innerText.trim() === 'Morning') ? '1' : '0'",
+                "match_type": "exact",
+                "match_value": "1",
+                "description": "Verify the half-day 'Paid leave' request for the morning of January 16, 2026 is correctly shown on the detail page."
+            }
         }
     },
     {
         "task_id": "128",
-        "task_description": "Cancel the submitted Pending leave request on Oct 9",
-        "task_type": "operation",
+        "task_description": "View the list of submitted leave requests.",
+        "task_type": "lookup",
         "start_url": "__LMS__",
         "steps": "2",
         "require_login": true,
         "eval": {
-            "eval_type": []
+            "eval_type": [
+                "url_match"
+            ],
+            "url_match": {
+                "match_type": "exact",
+                "match_value": "__LMS__/leaves"
+            }
         }
     },
     {
         "task_id": "129",
+        "task_description": "Cancel the submitted Pending leave request on Oct 9",
+        "task_type": "operation",
+        "start_url": "__LMS__",
+        "steps": "3",
+        "require_login": true,
+        "eval": {
+            "eval_type": [
+                "dom_match"
+            ],
+            "dom_match": {
+                "type": "dom_match",
+                "url": "__LMS__/leaves/leaves/1",
+                "dom_extractor": "document.querySelector('select[name=\"status\"] option[selected]')?.innerText",
+                "match_type": "exact",
+                "match_value": "Canceled",
+                "description": "Verify the leave request status is Canceled."
+            }
+        }
+    },
+    {
+        "task_id": "130",
         "task_description": "Approve a leave request for \"pm ONE\" on December 28.",
         "task_type": "operation",
         "start_url": "__LMS__",
         "steps": "3",
         "require_login": true,
         "eval": {
-            "eval_type": []
-        }
-    },
-    {
-        "task_id": "130",
-        "task_description": "Reject all leave requests for December 25 with the comment \"It is wellness day.\"",
-        "task_type": "operation",
-        "start_url": "__LMS__",
-        "steps": "3",
-        "require_login": true,
-        "eval": {
-            "eval_type": []
+            "eval_type": [
+                "dom_match"
+            ],
+            "dom_match": {
+                "type": "dom_match",
+                "url": "__LMS__/leaves/requests/12",
+                "dom_extractor": "document.querySelector('select[name=\"status\"] option[selected]')?.innerText",
+                "match_type": "exact",
+                "match_value": "Accepted",
+                "description": "Verify the leave request status is Accepted."
+            }
         }
     },
     {
         "task_id": "131",
-        "task_description": "Filter pending leave requests by employee \"employee FOUR\"",
+        "task_description": "Reject all leave requests for December 25 and enter a comment indicating that the date is reserved for the wellness day.",
         "task_type": "operation",
         "start_url": "__LMS__",
         "steps": "6",
         "require_login": true,
         "eval": {
-            "eval_type": []
+            "eval_type": [
+                "dom_match"
+            ],
+            "dom_match": {
+                "type": "dom_match",
+                "url": "__LMS__/leaves/all",
+                "dom_extractor": "Array.from(document.querySelectorAll('#leaves tbody tr')).filter(r => r.cells[2]?.innerText.includes('12/25/2025')).every(r => r.cells[6]?.innerText.trim() === 'Rejected') ? '1' : '0'",
+                "match_type": "exact",
+                "match_value": "1",
+                "description": "Verify all leave requests for December 25, 2025 are marked as Rejected."
+            }
         }
     },
     {
         "task_id": "132",
-        "task_description": "Update a pending leave request to switch from paid leave to sick leave on September 12.",
-        "task_type": "operation",
+        "task_description": "Filter pending leave requests by employee \"employee FOUR\"",
+        "task_type": "lookup",
         "start_url": "__LMS__",
         "steps": "4",
         "require_login": true,
         "eval": {
-            "eval_type": []
+            "eval_type": [
+                "dom_match"
+            ],
+            "dom_match": {
+                "type": "dom_match",
+                "url": "__LMS__/requests",
+                "dom_extractor": "(() => { const r=[...document.querySelectorAll('#leaves tbody tr')].filter(x=>x.offsetParent); return r.length && r.every(x=>x.cells[1]?.innerText.trim()==='employee FOUR') ? '1' : '0'; })();",
+                "match_type": "exact",
+                "match_value": "1",
+                "description": "Verify that all displayed pending leave requests belong to employee FOUR."
+            }
         }
     },
     {
         "task_id": "133",
-        "task_description": "Change the system language to Vietnamese.",
+        "task_description": "Update a pending leave request to switch from paid leave to sick leave on September 12.",
         "task_type": "operation",
         "start_url": "__LMS__",
         "steps": "7",
         "require_login": true,
         "eval": {
-            "eval_type": []
+            "eval_type": [
+                "dom_match"
+            ],
+            "dom_match": {
+                "type": "dom_match",
+                "url": "__LMS__/leaves/leaves/15",
+                "dom_extractor": "(document.querySelector('input[name=\"startdate\"]')?.value === '09/12/2025' && document.querySelector('input[name=\"enddate\"]')?.value === '09/12/2025' && document.querySelector('input[name=\"duration\"]')?.value === '1.000' && document.querySelector('select[name=\"type\"] option[selected]')?.innerText.trim() === 'Sick leave') ? '1' : '0'",
+                "match_type": "exact",
+                "match_value": "1",
+                "description": "Verify the leave request on September 12, 2025 has the correct start date, end date, duration, and leave type updated to Sick leave."
+            }
         }
     },
     {
         "task_id": "134",
-        "task_description": "Log in using the provided user = \"accountant1\" and password = \"Admin@123\", then reset the password to \"Jorani@2025\".",
+        "task_description": "Add an internal note to quotation S00002 saying 'Customer requests fast delivery'.",
         "task_type": "operation",
-        "start_url": "__LMS__",
+        "start_url": "__ERP__",
         "steps": "3",
-        "require_login": false,
+        "require_login": true,
         "eval": {
-            "eval_type": []
+            "eval_type": [
+                "dom_match"
+            ],
+            "dom_match": {
+                "type": "dom_match",
+                "url": "last",
+                "dom_extractor": "document.querySelector('.o-mail-Thread .o-mail-Message .o-mail-Message-body p')?.innerText",
+                "match_type": "contains",
+                "match_value": "Customer requests fast delivery",
+                "description": "Verify that an internal note saying 'Customer requests fast delivery' was added to the quotation."
+            }
         }
     },
     {
         "task_id": "135",
+        "task_description": "Create the product 'Ice Cream Vanilla' and assign it to the PoS category 'Food'.",
+        "task_type": "form",
+        "start_url": "__ERP__",
+        "steps": "6",
+        "require_login": true,
+        "eval": {
+            "eval_type": [
+                "dom_match"
+            ],
+            "dom_match": {
+                "type": "dom_match",
+                "url": "last",
+                "dom_extractor": "((document.querySelector('#name_0')?.value === 'Ice Cream Vanilla') && (document.querySelector('#categ_id_0')?.value === 'All / Saleable / PoS / Food')) ? '1' : '0'",
+                "match_type": "exact",
+                "match_value": "1",
+                "description": "Verify product name is exactly 'Ice Cream Vanilla' and PoS Category is exactly 'All / Saleable / PoS / Food'."
+            }
+        }
+    },
+    {
+        "task_id": "136",
         "task_description": "Change the manager of user = \"account.test.3@mynes.com\" to manager = \"account.test.5@mynes.com\".",
         "task_type": "operation",
         "start_url": "__LMS__",
         "steps": "6",
         "require_login": true,
         "eval": {
-            "eval_type": []
-        }
-    },
-    {
-        "task_id": "136",
-        "task_description": "Assign a 3-day compensate leave entitlement for \"account.test.3@mynes.com\" for this year.",
-        "task_type": "operation",
-        "start_url": "__LMS__",
-        "steps": "6",
-        "require_login": true,
-        "eval": {
-            "eval_type": []
+            "eval_type": [
+                "dom_match"
+            ],
+            "dom_match": {
+                "type": "dom_match",
+                "url": "__LMS__/users/edit/3",
+                "dom_extractor": "(document.querySelector('input[name=\"email\"]')?.value === 'account.test.3@mynes.com' && document.querySelector('#txtManager')?.value.trim() === 'pm ONE') ? '1' : '0'",
+                "match_type": "exact",
+                "match_value": "1",
+                "description": "Verify that the manager of user account.test.3@mynes.com is updated correctly."
+            }
         }
     },
     {
         "task_id": "137",
-        "task_description": "Change the login username of \"account.test.4@mynes.com\" to \"developer4\".",
-        "task_type": "operation",
+        "task_description": "Assign a 3-day compensate leave entitlement for \"account.test.3@mynes.com\" for full year 2025.",
+        "task_type": "form",
         "start_url": "__LMS__",
         "steps": "14",
         "require_login": true,
         "eval": {
-            "eval_type": []
+            "eval_type": [
+                "dom_match"
+            ],
+            "dom_match": {
+                "type": "dom_match",
+                "url": "__LMS__/hr/counters/employees/3",
+                "dom_extractor": "([...document.querySelectorAll('#entitleddaysemployee tbody tr')].some(r => r.cells[0]?.innerText.trim()==='01/01/2025' && r.cells[1]?.innerText.trim()==='12/31/2025' && r.cells[2]?.innerText.trim()==='3.00' && r.cells[3]?.innerText.trim()==='compensate')) ? '1' : '0'",
+                "match_type": "exact",
+                "match_value": "1",
+                "description": "Verify a 3-day compensate leave entitlement was added for full year 2025."
+            }
         }
     },
     {
         "task_id": "138",
-        "task_description": "Reset the password for user \"account.test.4@mynes.com\" to \"Jorani@2025\"",
+        "task_description": "Change the login username of \"account.test.4@mynes.com\" to \"developer4\".",
         "task_type": "operation",
         "start_url": "__LMS__",
         "steps": "6",
         "require_login": true,
         "eval": {
-            "eval_type": []
+            "eval_type": [
+                "dom_match"
+            ],
+            "dom_match": {
+                "type": "dom_match",
+                "url": "__LMS__/users/edit/4",
+                "dom_extractor": "(document.querySelector('input[name=\"email\"]')?.value === 'account.test.4@mynes.com' && document.querySelector('input[name=\"login\"]')?.value === 'developer4') ? '1' : '0'",
+                "match_type": "exact",
+                "match_value": "1",
+                "description": "Verify that the login username for account.test.4@mynes.com is updated to developer4."
+            }
         }
     },
     {
-        "task_id": "139",
-        "task_description": "Delete the account of user \"account.test.6@mynes.com\".",
+        "task_id": "153",
+        "task_description": "Submit a 3-hour overtime request for Dec 31, 2025 with the reason 'Regression testing after bug fixing'.",
         "task_type": "operation",
         "start_url": "__LMS__",
-        "steps": "6",
+        "steps": "10",
         "require_login": true,
         "eval": {
-            "eval_type": []
+            "eval_type": [
+                "dom_match"
+            ],
+            "dom_match": {
+                "type": "dom_match",
+                "url": "last",
+                "dom_extractor": "[...document.querySelectorAll('table tbody tr')].some(r => r.cells[1]?.innerText.trim() === '12/31/2025' && r.cells[2]?.innerText.trim() === '0.375' && r.cells[3]?.innerText.trim() === 'Regression testing after bug fixing') ? '1' : '0'",
+                "match_type": "exact",
+                "match_value": "1",
+                "description": "Verify the overtime request (0.375 day = 3 hours) on Dec 31 2025 with correct reason exists."
+            }
         }
     },
     {
         "task_id": "140",
-        "task_description": "Update the email of user \"account.test.7@mynes.com\" to \"internship.test.7@mynes.com\".",
+        "task_description": "Delete the account of user \"account.test.6@mynes.com\".",
         "task_type": "operation",
         "start_url": "__LMS__",
         "steps": "4",
         "require_login": true,
         "eval": {
-            "eval_type": []
+            "eval_type": [
+                "dom_match"
+            ],
+            "dom_match": {
+                "type": "dom_match",
+                "url": "__LMS__/users/edit/6",
+                "dom_extractor": "document.querySelector('#email') ? '0' : '1'",
+                "match_type": "exact",
+                "match_value": "1",
+                "description": "Verify that the user account.test.6@mynes.com no longer exists and the email field is not present."
+            }
         }
     },
     {
         "task_id": "141",
+        "task_description": "Update the email of user \"account.test.7@mynes.com\" to \"internship.test.7@mynes.com\".",
+        "task_type": "operation",
+        "start_url": "__LMS__",
+        "steps": "6",
+        "require_login": true,
+        "eval": {
+            "eval_type": [
+                "dom_match"
+            ],
+            "dom_match": {
+                "type": "dom_match",
+                "url": "__LMS__/users/edit/7",
+                "dom_extractor": "document.querySelector('#email')?.value",
+                "match_type": "exact",
+                "match_value": "internship.test.7@mynes.com",
+                "description": "Verify the updated email value for this user."
+            }
+        }
+    },
+    {
+        "task_id": "142",
         "task_description": "Change the position of user \"account.test.4@mynes.com\" from Employee to Manager.",
         "task_type": "operation",
         "start_url": "__LMS__",
         "steps": "6",
         "require_login": true,
         "eval": {
-            "eval_type": []
-        }
-    },
-    {
-        "task_id": "142",
-        "task_description": "Grant administrator rights to \"admin.test.8@mynes.com\".",
-        "task_type": "operation",
-        "start_url": "__LMS__",
-        "steps": "6",
-        "require_login": true,
-        "eval": {
-            "eval_type": []
+            "eval_type": [
+                "dom_match"
+            ],
+            "dom_match": {
+                "type": "dom_match",
+                "url": "__LMS__/users/edit/4",
+                "dom_extractor": "document.querySelector('#txtPosition')?.value",
+                "match_type": "exact",
+                "match_value": "Manager",
+                "description": "Verify the user's position is updated to Manager."
+            }
         }
     },
     {
         "task_id": "143",
-        "task_description": "Reject a leave request for user \"pm ONE\" on \"Dec 10\" with a comment \"Insufficient balance.\"",
+        "task_description": "Grant administrator rights to \"admin.test.8@mynes.com\".",
         "task_type": "operation",
         "start_url": "__LMS__",
         "steps": "5",
         "require_login": true,
         "eval": {
-            "eval_type": []
+            "eval_type": [
+                "dom_match"
+            ],
+            "dom_match": {
+                "type": "dom_match",
+                "url": "__LMS__/users/edit/10",
+                "dom_extractor": "document.querySelector('select[name=\"role[]\"] option[value=\"1\"]')?.selected ? '1' : '0'",
+                "match_type": "exact",
+                "match_value": "1",
+                "description": "Verify that administrator role is selected."
+            }
         }
     },
     {
         "task_id": "144",
-        "task_description": "Edit the leave date from \"September 9\" to \"September 11\".",
+        "task_description": "Reject the leave request submitted by the user \"pm ONE\" for December 10, adding a comment indicating insufficient balance.",
         "task_type": "operation",
         "start_url": "__LMS__",
         "steps": "5",
         "require_login": true,
         "eval": {
-            "eval_type": []
+            "eval_type": [
+                "dom_match"
+            ],
+            "dom_match": {
+                "type": "dom_match",
+                "url": "__LMS__/leaves/requests/14",
+                "dom_extractor": "document.querySelector('select[name=\"status\"] option[selected]')?.innerText",
+                "match_type": "exact",
+                "match_value": "Rejected",
+                "description": "Verify the leave request is marked as Rejected."
+            }
         }
     },
     {
         "task_id": "145",
-        "task_description": "Set the default time zone of user account.test.1@mynes.com to Asia/Ho_Chi_Minh.",
+        "task_description": "Edit the leave date from \"September 9\" to \"September 11\".",
         "task_type": "operation",
         "start_url": "__LMS__",
         "steps": "9",
         "require_login": true,
         "eval": {
-            "eval_type": []
+            "eval_type": [
+                "dom_match"
+            ],
+            "dom_match": {
+                "type": "dom_match",
+                "url": "__LMS__/leaves/leaves/5",
+                "dom_extractor": "(document.querySelector('input[name=\"startdate\"]')?.value === '09/11/2025' && document.querySelector('input[name=\"enddate\"]')?.value === '09/11/2025' && document.querySelector('input[name=\"duration\"]')?.value === '1.000' && document.querySelector('select[name=\"type\"] option[selected]')?.innerText.trim().toLowerCase() === 'paid leave') ? '1' : '0'",
+                "match_type": "exact",
+                "match_value": "1",
+                "description": "Verify the leave request was updated to Sept 11, 2025 with duration 1.000 and type Paid Leave."
+            }
         }
     },
     {
         "task_id": "146",
-        "task_description": "Grant a 12-day \"Paid Leave\" entitlement to \"account.test.3@mynes.com\" for the current year.",
+        "task_description": "Set the default time zone of user account.test.1@mynes.com to Asia/Ho_Chi_Minh.",
         "task_type": "operation",
         "start_url": "__LMS__",
         "steps": "8",
         "require_login": true,
         "eval": {
-            "eval_type": []
+            "eval_type": [
+                "dom_match"
+            ],
+            "dom_match": {
+                "type": "dom_match",
+                "url": "__LMS__/users/edit/2",
+                "dom_extractor": "document.querySelector('#select2-timezone-container')?.innerText",
+                "match_type": "exact",
+                "match_value": "Asia/Ho_Chi_Minh",
+                "description": "Verify that the user's default time zone is set to Asia/Ho_Chi_Minh."
+            }
         }
     },
     {
         "task_id": "147",
-        "task_description": "Create a new department named \"Accountant\", then assign user \"account.test.8@mynes.com\" to this department ",
+        "task_description": "Grant a 12-day \"Paid Leave\" entitlement to \"account.test.3@mynes.com\" for the full year 2025.",
         "task_type": "operation",
         "start_url": "__LMS__",
         "steps": "12",
         "require_login": true,
         "eval": {
-            "eval_type": []
+            "eval_type": [
+                "dom_match"
+            ],
+            "dom_match": {
+                "type": "dom_match",
+                "url": "__LMS__/hr/counters/employees/3",
+                "dom_extractor": "([...document.querySelectorAll('#entitleddaysemployee tbody tr')].some(r => r.cells[0]?.innerText.trim()==='01/01/2025' && r.cells[1]?.innerText.trim()==='12/31/2025' && r.cells[2]?.innerText.trim()==='12.00' && r.cells[3]?.innerText.trim()==='paid leave')) ? '1' : '0'",
+                "match_type": "exact",
+                "match_value": "1",
+                "description": "Verify a 12-day Paid Leave entitlement is granted for full year 2025."
+            }
         }
     },
     {
         "task_id": "148",
-        "task_description": "Create a new position named \"internship\" and change position of user  \"internship2\" to internship",
+        "task_description": "Create a new department named \"Accountant\", then assign user \"account.test.8@mynes.com\" to this department ",
         "task_type": "operation",
         "start_url": "__LMS__",
         "steps": "8",
         "require_login": true,
         "eval": {
-            "eval_type": []
+            "eval_type": [
+                "dom_match"
+            ],
+            "dom_match": {
+                "type": "dom_match",
+                "url": "__LMS__/users/edit/9",
+                "dom_extractor": "document.querySelector('#txtEntity')?.value",
+                "match_type": "exact",
+                "match_value": "Accountant",
+                "description": "Verify that the user's department is set to Accountant."
+            }
         }
     },
     {
         "task_id": "149",
-        "task_description": "Submit a compensate leave request for the first Monday of next month.",
+        "task_description": "Create a new position named \"Internship\" and change position of user  \"internship2\" to internship",
         "task_type": "operation",
         "start_url": "__LMS__",
         "steps": "10",
         "require_login": true,
         "eval": {
-            "eval_type": []
+            "eval_type": [
+                "dom_match"
+            ],
+            "dom_match": {
+                "type": "dom_match",
+                "url": "__LMS__/users/edit/7",
+                "dom_extractor": "document.querySelector('#txtPosition')?.value",
+                "match_type": "exact",
+                "match_value": "Internship",
+                "description": "Verify that the user's position is set to Internship."
+            }
         }
     },
     {
@@ -2495,7 +2937,23 @@
         "steps": "8",
         "require_login": true,
         "eval": {
-            "eval_type": []
+            "eval_type": [
+                "url_match",
+                "dom_match"
+            ],
+            "url_match": {
+                "type": "url_match",
+                "match_type": "exact",
+                "match_value": "__LMS__/leaves"
+            },
+            "dom_match": {
+                "type": "dom_match",
+                "url": "last",
+                "dom_extractor": "([...document.querySelectorAll('tbody tr')].every(r => r.cells[6]?.innerText.trim() === 'Requested')) ? '1' : '0'",
+                "match_type": "exact",
+                "match_value": "1",
+                "description": "Verify that all displayed leave requests are marked as Requested."
+            }
         }
     }
 ]
