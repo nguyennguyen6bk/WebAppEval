@@ -1,7 +1,7 @@
 [
     {
         "task_id": "1",
-        "task_description": "Navigate to the detail page of the first product listed in the \"Gear > Watches\" category.",
+        "task_description": "Navigate to the 'Gear > Watches' category listing and return only the name of the first product by ascending position.",
         "task_type": "lookup",
         "start_url": "__SHOPPING__",
         "steps": "3",
@@ -25,34 +25,37 @@
         "require_login": true,
         "eval": {
             "eval_type": [
-                "string_match"
+                "dom_match"
             ],
-            "string_match": {
-                "match_type": "semantic",
-                "match_value": "Veronica Costello\n6146 Honey Bluff Parkway\nCalder, Michigan, 49628-7978\nUnited States\nT: (555) 229-3326"
+            "dom_match": {
+                "url": "__LMS__/review/customer/",
+                "dom_extractor": "[...document.querySelectorAll('tbody tr')].some(row => row.querySelector('td[data-th=\"Product Name\"] .product-name a')?.innerText.trim() === 'Hero Hoodie' && row.querySelector('td[data-th=\"Rating\"] .rating-summary .rating-result span span')?.innerText.trim() === '80%') ? 1 : 0",
+                "match_type": "exact",
+                "match_value": 1,
+                "description": "Check if there is any row in the review table where the product name is 'Hero Hoodie' and the rating is '80%'."
             }
         }
     },
     {
         "task_id": "3",
-        "task_description": "Navigate to the \"Women > Pants\" category page, then open the detail page of the 13th listed product.",
+        "task_description": "Go to the \"Women > Pants\" category and open the detail page of the 13th listed product, based on ascending position in the listing.",
         "task_type": "lookup",
         "start_url": "__SHOPPING__",
         "steps": "4",
         "require_login": false,
         "eval": {
             "eval_type": [
-                "string_match"
+                "url_match"
             ],
-            "string_match": {
+            "url_match": {
                 "match_type": "exact",
-                "match_value": "Portia Capri"
+                "match_value": "__LMS__/portia-capri.html"
             }
         }
     },
     {
         "task_id": "4",
-        "task_description": "Purchase 3 units of 'Push It Messenger Bag' using the cheapest shipping method.",
+        "task_description": "Purchase 3 units of 'Push It Messenger Bag' using the cheapest shipping method and return only the total order value.",
         "task_type": "operation",
         "start_url": "__SHOPPING__",
         "steps": "12",
@@ -79,11 +82,11 @@
                 "dom_match"
             ],
             "dom_match": {
-                "url": "http://localhost:8084/customer/account/",
-                "dom_extractor": "document.querySelector('span.logged-in').innerText",
+                "url": "last",
+                "dom_extractor": "document.querySelector('span.logged-in')?.innerText",
                 "match_type": "contains",
                 "match_value": "Welcome,",
-                "description": ""
+                "description": "Check if the user is logged in by verifying the presence of 'Welcome,' text."
             }
         }
     },
@@ -96,13 +99,8 @@
         "require_login": false,
         "eval": {
             "eval_type": [
-                "string_match",
                 "url_match"
             ],
-            "string_match": {
-                "match_type": "contains",
-                "match_value": "checkout/cart"
-            },
             "url_match": {
                 "match_type": "contains",
                 "match_value": "checkout/cart"
@@ -163,7 +161,7 @@
                 "dom_match"
             ],
             "dom_match": {
-                "url": "http://localhost:8084/wishlist/",
+                "url": "__SHOPPING__/wishlist/",
                 "dom_extractor": "[...document.querySelectorAll('strong.product-item-name a')].some(a => a.innerText.includes('Josie Yoga Jacket'))",
                 "match_type": "exact",
                 "match_value": true,
@@ -173,7 +171,7 @@
     },
     {
         "task_id": "11",
-        "task_description": "Place an order for the product 'Hyperion Elements Jacket - XL - Red' on behalf of the user with the email address 'account.test.2@mynes.com'.",
+        "task_description": "Place an order for any available product on behalf of the user with the email address 'account.test.2@mynes.com'",
         "task_type": "operation",
         "start_url": "__SHOPPING_ADMIN__",
         "steps": "12",
@@ -193,7 +191,7 @@
     },
     {
         "task_id": "12",
-        "task_description": "Navigate to the latest comment for order #000000003.",
+        "task_description": "Navigate to the latest comment for order #000000003 and return the latest comment text only.",
         "task_type": "lookup",
         "start_url": "__SHOPPING_ADMIN__",
         "steps": "4",
@@ -210,7 +208,7 @@
     },
     {
         "task_id": "13",
-        "task_description": "Open order #000000004 and navigate to its tracking details page.",
+        "task_description": "Open order #000000004 and return the tracking number only from its tracking details page.",
         "task_type": "lookup",
         "start_url": "__SHOPPING_ADMIN__",
         "steps": "5",
@@ -227,7 +225,7 @@
     },
     {
         "task_id": "14",
-        "task_description": "Apply coupon code \"save5percent\" and purchase \"Erika Running Short\" in size 32 and color Red.",
+        "task_description": "Apply coupon code \"save5percent\" to the product \"Erika Running Short\" (size 32, color Red) and return the final total price only.",
         "task_type": "operation",
         "start_url": "__SHOPPING__",
         "steps": "9",
@@ -237,25 +235,33 @@
                 "string_match"
             ],
             "string_match": {
-                "match_type": "exact",
-                "match_value": "$42.75"
+                "match_type": "contains",
+                "match_value": "42.75"
             }
         }
     },
     {
         "task_id": "15",
-        "task_description": "Create a cart price rule named \"10% Off on Orders Over $15\" with the coupon code \"save10percentfororderover15dollar\", giving 10% off for orders with a subtotal of $15 or more.",
+        "task_description": "Create a cart price rule named '10% Off on Orders Over $15' with the coupon code 'save10percentfororderover15dollar' for the Main Website and the General customer group.\nThe rule must give 10% off for orders with a subtotal of $15 or more.\nAfter creating the rule, open its edit page and expand (click to open) both the 'Conditions' and 'Actions' sections.",
         "task_type": "operation",
         "start_url": "__SHOPPING_ADMIN__",
-        "steps": "20",
+        "steps": "15",
         "require_login": true,
         "eval": {
             "eval_type": [
-                "string_match"
+                "string_match",
+                "dom_match"
             ],
             "string_match": {
                 "match_type": "contains",
                 "match_value": "18.05"
+            },
+            "dom_match": {
+                "url": "last",
+                "dom_extractor": "(document.querySelector('#conditions__1--1__operator')?.selectedOptions[0]?.textContent.trim() === 'equals or greater than' && document.querySelector('#conditions__1--1__value')?.value === '15' && document.querySelector('[name=\"discount_amount\"]')?.value === '10' && document.querySelector('[name=\"simple_action\"]')?.value === 'by_percent') ? 1 : 0",
+                "match_type": "exact",
+                "match_value": "1",
+                "description": "Verify discount settings of the created cart price rule."
             }
         }
     },
@@ -271,7 +277,7 @@
                 "dom_match"
             ],
             "dom_match": {
-                "url": "http://localhost:8084/bag-hand-made.html",
+                "url": "__SHOPPING__/bag-hand-made.html",
                 "dom_extractor": "document.querySelector('span[data-price-type=\"finalPrice\"]').innerText",
                 "match_type": "exact",
                 "match_value": "$30.00",
@@ -291,7 +297,7 @@
                 "dom_match"
             ],
             "dom_match": {
-                "url": "http://localhost:8084/endurance-watch.html",
+                "url": "__SHOPPING__/endurance-watch.html",
                 "dom_extractor": "document.querySelector('div.stock.unavailable span').innerText.trim()",
                 "match_type": "exact",
                 "match_value": "OUT OF STOCK",
@@ -301,7 +307,7 @@
     },
     {
         "task_id": "18",
-        "task_description": "Reach page 2 of the Women > Pants listing.",
+        "task_description": "Go to page 2 of the Women > Pants listing and return the number of products displayed on that page.",
         "task_type": "Lookup",
         "start_url": "__SHOPPING__",
         "steps": "4",
@@ -311,7 +317,7 @@
                 "string_match"
             ],
             "string_match": {
-                "match_type": "exact",
+                "match_type": "contains",
                 "match_value": "1"
             }
         }
@@ -328,7 +334,7 @@
                 "dom_match"
             ],
             "dom_match": {
-                "url": "http://localhost:8084/compete-track-tote.html",
+                "url": "__SHOPPING__/compete-track-tote.html",
                 "dom_extractor": "document.querySelector('span[data-ui-id=\"page-title-wrapper\"]').innerText;",
                 "match_type": "contains",
                 "match_value": "Whoops, our bad...",
@@ -348,7 +354,7 @@
                 "dom_match"
             ],
             "dom_match": {
-                "url": "http://localhost:8084/voyage-yoga-bag.html",
+                "url": "__SHOPPING__/voyage-yoga-bag.html",
                 "dom_extractor": "document.querySelector('span[data-ui-id=\"page-title-wrapper\"]').innerText;",
                 "match_type": "contains",
                 "match_value": "Voyage Yoga Bag",
@@ -368,7 +374,7 @@
                 "dom_match"
             ],
             "dom_match": {
-                "url": "http://localhost:8084/about-us",
+                "url": "__SHOPPING__/about-us",
                 "dom_extractor": "document.querySelector('span[data-ui-id=\"page-title-wrapper\"]').innerText;",
                 "match_type": "exact",
                 "match_value": "About Our Company",
@@ -388,7 +394,7 @@
                 "dom_match"
             ],
             "dom_match": {
-                "url": "http://localhost:8084/catalog/product_compare/",
+                "url": "__SHOPPING__/catalog/product_compare/",
                 "dom_extractor": "[...document.querySelectorAll('td.cell.product.info a')].map(a => a.title).some(t => ['Rival Field Messenger', 'Fusion Backpack'].includes(t))",
                 "match_type": "exact",
                 "match_value": true,
@@ -408,7 +414,7 @@
                 "dom_match"
             ],
             "dom_match": {
-                "url": "http://localhost:8084/admin_1n47uy/sales/order/view/order_id/9",
+                "url": "__SHOPPING_ADMIN__/sales/order/view/order_id/9",
                 "dom_extractor": "document.querySelector('#order_history_block .note-list-comment').innerText",
                 "match_type": "exact",
                 "match_value": "We refunded $63.71 offline.",
@@ -428,7 +434,7 @@
                 "dom_match"
             ],
             "dom_match": {
-                "url": "http://localhost:8084/admin_1n47uy/sales/order/view/order_id/10",
+                "url": "__SHOPPING_ADMIN__/sales/order/view/order_id/10",
                 "dom_extractor": "document.querySelector('#order_history_block .note-list-comment').innerText",
                 "match_type": "contains",
                 "match_value": "We refunded $56.25 offline",
@@ -438,7 +444,7 @@
     },
     {
         "task_id": "25",
-        "task_description": "Reorder the Most Recent Order of Customer 'Veronica Costello'",
+        "task_description": "Reorder the most recent order of customer 'Veronica Costello' and return the Grand Total price of the new order.",
         "task_type": "operation",
         "start_url": "__SHOPPING_ADMIN__",
         "steps": "4",
@@ -473,7 +479,7 @@
                 "dom_match"
             ],
             "dom_match": {
-                "url": "http://localhost:8084/sales/order/history/",
+                "url": "__SHOPPING__/sales/order/history/",
                 "dom_extractor": "document.querySelector('td.col.total .price').innerText",
                 "match_type": "exact",
                 "match_value": "$50.00",
@@ -493,7 +499,7 @@
                 "dom_match"
             ],
             "dom_match": {
-                "url": "http://localhost:8084/customer-service",
+                "url": "__SHOPPING__/customer-service",
                 "dom_extractor": "document.querySelector('.customer-service.cms-content h2').innerText",
                 "match_type": "exact",
                 "match_value": "Luna Service Team",
@@ -513,7 +519,7 @@
                 "dom_match"
             ],
             "dom_match": {
-                "url": "http://localhost:8084/store-location",
+                "url": "__SHOPPING__/store-location",
                 "dom_extractor": "document.querySelector('.breadcrumbs ul.items li.item.cms_page strong').innerText",
                 "match_type": "exact",
                 "match_value": "Store Location",
@@ -533,7 +539,7 @@
                 "dom_match"
             ],
             "dom_match": {
-                "url": "http://localhost:8084/sprite-foam-roller.html",
+                "url": "__SHOPPING__/sprite-foam-roller.html",
                 "dom_extractor": "document.querySelector('#product-price-22 .price').innerText",
                 "match_type": "contains",
                 "match_value": "$15.00",
@@ -584,7 +590,7 @@
                 "dom_match"
             ],
             "dom_match": {
-                "url": "http://localhost:8089/projects/demo-shop",
+                "url": "__PROJECT__/projects/demo-shop",
                 "dom_extractor": "document.querySelector('.wiki p').innerText",
                 "match_type": "exact",
                 "match_value": "Demo Shop is an eCommerce website based on the Magento platform.",
@@ -604,7 +610,7 @@
                 "dom_match"
             ],
             "dom_match": {
-                "url": "http://localhost:8089/projects/demo-shop/wiki",
+                "url": "__PROJECT__/projects/demo-shop/wiki",
                 "dom_extractor": "document.querySelector('#errorExplanation').innerText;",
                 "match_type": "contains",
                 "match_value": "You are not authorized to access this page.",
@@ -624,7 +630,7 @@
                 "dom_match"
             ],
             "dom_match": {
-                "url": "http://localhost:8089/projects/demo-shop/news",
+                "url": "__PROJECT__/projects/demo-shop/news",
                 "dom_extractor": "document.querySelector('.news-article h3 a').innerText",
                 "match_type": "contains",
                 "match_value": "Official Customer Demo Scheduled for Next Thursday",
@@ -644,7 +650,7 @@
                 "dom_match"
             ],
             "dom_match": {
-                "url": "http://localhost:8089/projects/demo-app",
+                "url": "__PROJECT__/projects/demo-app",
                 "dom_extractor": "document.querySelector('p.warning').innerText;",
                 "match_type": "exact",
                 "match_value": "This project is closed and read-only.",
@@ -684,7 +690,7 @@
                 "dom_match"
             ],
             "dom_match": {
-                "url": "http://localhost:8089/users/6",
+                "url": "__PROJECT__/users/6",
                 "dom_extractor": "document.querySelector('tbody tr:last-child td.project.name a').innerText",
                 "match_type": "exact",
                 "match_value": "Demo Shop",
@@ -704,7 +710,7 @@
                 "dom_match"
             ],
             "dom_match": {
-                "url": "http://localhost:8089/users/7/edit",
+                "url": "__PROJECT__/users/7/edit",
                 "dom_extractor": "document.querySelector('#user_must_change_passwd').value",
                 "match_type": "exact",
                 "match_value": "1",
@@ -724,7 +730,7 @@
                 "dom_match"
             ],
             "dom_match": {
-                "url": "http://localhost:8089/users",
+                "url": "__PROJECT__/users",
                 "dom_extractor": "document.querySelector('tr.user:first-of-type td.mail').innerText;",
                 "match_type": "exact",
                 "match_value": "account.test.1@mynes.com",
@@ -764,7 +770,7 @@
                 "dom_match"
             ],
             "dom_match": {
-                "url": "http://localhost:8089/projects/demo-shop/settings/versions",
+                "url": "__PROJECT__/projects/demo-shop/settings/versions",
                 "dom_extractor": "document.querySelector('tr.version:last-of-type td.name').innerText",
                 "match_type": "exact",
                 "match_value": "version3",
@@ -784,7 +790,7 @@
                 "dom_match"
             ],
             "dom_match": {
-                "url": "http://localhost:8089/issues/3",
+                "url": "__PROJECT__/issues/3",
                 "dom_extractor": "document.querySelector('div.fixed-version.attribute div.value a').innerText",
                 "match_type": "exact",
                 "match_value": "version2",
@@ -804,7 +810,7 @@
                 "dom_match"
             ],
             "dom_match": {
-                "url": "http://localhost:8089/issues/4/edit",
+                "url": "__PROJECT__/issues/4/edit",
                 "dom_extractor": "document.getElementById([...document.querySelectorAll('label')].find(l => l.querySelector('span')?.textContent.trim() === 'Environment')?.getAttribute('for'))?.innerHTML",
                 "match_type": "contains",
                 "match_value": [
@@ -828,7 +834,7 @@
                 "dom_match"
             ],
             "dom_match": {
-                "url": "http://localhost:8089/projects/demo-shop/settings",
+                "url": "__PROJECT__/projects/demo-shop/settings",
                 "dom_extractor": "document.querySelector(`input#${[...document.querySelectorAll('label')].find(l => l.querySelector('span')?.textContent.trim() === 'Start Date')?.getAttribute('for')}`)?.getAttribute('type')",
                 "match_type": "exact",
                 "match_value": "date",
@@ -848,7 +854,7 @@
                 "dom_match"
             ],
             "dom_match": {
-                "url": "http://localhost:8089/workflows/edit?role_id[]=4&tracker_id[]=1&used_statuses_only=0&used_statuses_only=1",
+                "url": "__PROJECT__/workflows/edit?role_id[]=4&tracker_id[]=1&used_statuses_only=0&used_statuses_only=1",
                 "dom_extractor": "document.getElementById('transitions_1_5_always').checked",
                 "match_type": "exact",
                 "match_value": false,
@@ -868,7 +874,7 @@
                 "dom_match"
             ],
             "dom_match": {
-                "url": "http://localhost:8089/workflows/edit?role_id[]=4&tracker_id[]=1&used_statuses_only=0&used_statuses_only=1",
+                "url": "__PROJECT__/workflows/edit?role_id[]=4&tracker_id[]=1&used_statuses_only=0&used_statuses_only=1",
                 "dom_extractor": "document.getElementById('transitions_6_2_always').checked",
                 "match_type": "exact",
                 "match_value": true,
@@ -888,7 +894,7 @@
                 "dom_match"
             ],
             "dom_match": {
-                "url": "http://localhost:8089/workflows/edit?role_id[]=3&tracker_id[]=2&used_statuses_only=0",
+                "url": "__PROJECT__/workflows/edit?role_id[]=3&tracker_id[]=2&used_statuses_only=0",
                 "dom_extractor": "document.getElementById('transitions_5_1_always').checked",
                 "match_type": "exact",
                 "match_value": true,
@@ -928,7 +934,7 @@
                 "dom_match"
             ],
             "dom_match": {
-                "url": "http://localhost:8089/roles",
+                "url": "__PROJECT__/roles",
                 "dom_extractor": "[...document.querySelectorAll('.ui-sortable .givable .name')].some(el => el.textContent.includes('QA'))",
                 "match_type": "exact",
                 "match_value": true,
@@ -948,7 +954,7 @@
                 "dom_match"
             ],
             "dom_match": {
-                "url": "http://localhost:8089/issue_statuses",
+                "url": "__PROJECT__/issue_statuses",
                 "dom_extractor": "[...document.querySelectorAll('.ui-sortable .name')].some(el => el.textContent.includes('Pending'))",
                 "match_type": "exact",
                 "match_value": true,
@@ -968,7 +974,7 @@
                 "dom_match"
             ],
             "dom_match": {
-                "url": "http://localhost:8089/custom_fields?tab=IssueCustomField",
+                "url": "__PROJECT__/custom_fields?tab=IssueCustomField",
                 "dom_extractor": "[...document.querySelectorAll('a')].find(a => a.textContent.trim() === 'Test Case Link')?.closest('tr')?.children[1]?.textContent.trim()",
                 "match_type": "exact",
                 "match_value": "Link",
@@ -988,7 +994,7 @@
                 "dom_match"
             ],
             "dom_match": {
-                "url": "http://localhost:8089/issue_statuses",
+                "url": "__PROJECT__/issue_statuses",
                 "dom_extractor": "document.querySelector('tbody tr:last-child .name').innerText",
                 "match_type": "exact",
                 "match_value": "Closed",
@@ -1008,7 +1014,7 @@
                 "dom_match"
             ],
             "dom_match": {
-                "url": "http://localhost:8070/web#action=485&model=sale.order&view_type=list&cids=1&menu_id=305",
+                "url": "__ERP__/web#action=485&model=sale.order&view_type=list&cids=1&menu_id=305",
                 "dom_extractor": "document.querySelector('tbody.ui-sortable tr.o_data_row div[name=\"amount_total\"]').innerText",
                 "match_type": "exact",
                 "match_value": "$ 8.05",
@@ -1028,7 +1034,7 @@
                 "dom_match"
             ],
             "dom_match": {
-                "url": "http://localhost:8070/web#id=3&menu_id=305&action=485&model=sale.order&view_type=form",
+                "url": "__ERP__/web#id=3&menu_id=305&action=485&model=sale.order&view_type=form",
                 "dom_extractor": "Array.from(document.querySelectorAll('button[role=\"radio\"]')).find(btn => btn.textContent.trim() === 'Sales Order')?.getAttribute('aria-checked') === 'true'",
                 "match_type": "exact",
                 "match_value": true,
@@ -1048,7 +1054,7 @@
                 "dom_match"
             ],
             "dom_match": {
-                "url": "http://localhost:8070/web#action=498&model=product.template&view_type=kanban&menu_id=315",
+                "url": "__ERP__/web#action=498&model=product.template&view_type=kanban&menu_id=315",
                 "dom_extractor": "Array.from(document.querySelectorAll('.oe_kanban_details')).find(c => c.querySelector('.o_kanban_record_title span')?.textContent.trim() === 'Pizza Pineapple')?.querySelector('[name=\"list_price\"] span')?.textContent.trim()",
                 "match_type": "exact",
                 "match_value": "$ 10.00",
@@ -1068,7 +1074,7 @@
                 "dom_match"
             ],
             "dom_match": {
-                "url": "http://localhost:8070/pos/ui?config_id=2#cids=1",
+                "url": "__ERP__/pos/ui?config_id=2#cids=1",
                 "dom_extractor": "!!Array.from(document.querySelectorAll('.floor-selector button')).find(btn => btn.textContent.trim() === 'Main Floor')",
                 "match_type": "exact",
                 "match_value": true,
@@ -1088,7 +1094,7 @@
                 "dom_match"
             ],
             "dom_match": {
-                "url": "http://localhost:8070/web?reload=true#id=5&cids=1&menu_id=251&action=408&model=restaurant.floor&view_type=form",
+                "url": "__ERP__/web?reload=true#id=5&cids=1&menu_id=251&action=408&model=restaurant.floor&view_type=form",
                 "dom_extractor": "[...document.querySelectorAll('tbody.ui-sortable tr.o_data_row')].some(tr => tr.querySelector('td[name=\"name\"]')?.innerText.includes('Table 5'))",
                 "match_type": "exact",
                 "match_value": true,
@@ -1108,7 +1114,7 @@
                 "dom_match"
             ],
             "dom_match": {
-                "url": "http://localhost:8070/web?reload=true#action=395&model=pos.config&view_type=list&cids=1&menu_id=243",
+                "url": "__ERP__/web?reload=true#action=395&model=pos.config&view_type=list&cids=1&menu_id=243",
                 "dom_extractor": "!!Array.from(document.querySelectorAll('tbody.ui-sortable tr')).find(tr => tr.querySelector('td[name=\"name\"]')?.textContent.trim() === 'Purple Shop')",
                 "match_type": "exact",
                 "match_value": true,
@@ -1128,7 +1134,7 @@
                 "dom_match"
             ],
             "dom_match": {
-                "url": "http://localhost:8070/web?reload=true#action=394&model=pos.config&view_type=kanban&cids=1&menu_id=223",
+                "url": "__ERP__/web?reload=true#action=394&model=pos.config&view_type=kanban&cids=1&menu_id=223",
                 "dom_extractor": "!!Array.from(document.querySelectorAll('.o_kanban_record')).find(card => card.textContent.includes('NYC Shop') && card.querySelector('button')?.textContent.trim() === 'Continue Selling')",
                 "match_type": "exact",
                 "match_value": true,
@@ -1148,7 +1154,7 @@
                 "dom_match"
             ],
             "dom_match": {
-                "url": "http://localhost:8070/web?reload=true#action=394&model=pos.config&view_type=kanban&cids=1&menu_id=223",
+                "url": "__ERP__/web?reload=true#action=394&model=pos.config&view_type=kanban&cids=1&menu_id=223",
                 "dom_extractor": "!!Array.from(document.querySelectorAll('.o_kanban_record')).find(card => card.textContent.includes('NM Shop') && card.querySelector('button')?.textContent.trim() === 'New Session')",
                 "match_type": "exact",
                 "match_value": true,
@@ -1168,7 +1174,7 @@
                 "dom_match"
             ],
             "dom_match": {
-                "url": "http://localhost:8070/web?reload=true#action=380&model=pos.order&view_type=list&cids=1&menu_id=231",
+                "url": "__ERP__/web?reload=true#action=380&model=pos.order&view_type=list&cids=1&menu_id=231",
                 "dom_extractor": "document.querySelector('tr.o_data_row td[name=\"amount_total\"] span')?.innerText",
                 "match_type": "exact",
                 "match_value": "$ 8.05",
@@ -1188,7 +1194,7 @@
                 "dom_match"
             ],
             "dom_match": {
-                "url": "http://localhost:8070/web?reload=true#action=445&model=crm.lead&view_type=list&cids=1&menu_id=284",
+                "url": "__ERP__/web?reload=true#action=445&model=crm.lead&view_type=list&cids=1&menu_id=284",
                 "dom_extractor": "!!Array.from(document.querySelectorAll('tr.o_data_row')).find(tr => tr.querySelector('td[name=\"email_from\"]')?.textContent.trim().includes('account.test.2@mynes.com') && tr.querySelector('td[name=\"name\"]')?.textContent.trim().includes('Web design'))",
                 "match_type": "exact",
                 "match_value": true,
@@ -1208,7 +1214,7 @@
                 "dom_match"
             ],
             "dom_match": {
-                "url": "http://localhost:8070/web?reload=true#action=445&model=crm.lead&view_type=list&cids=1&menu_id=284",
+                "url": "__ERP__/web?reload=true#action=445&model=crm.lead&view_type=list&cids=1&menu_id=284",
                 "dom_extractor": "Array.from(document.querySelectorAll('tr.o_data_row')).find(tr => tr.querySelector('td[name=\"name\"]')?.textContent.trim() === 'Website Development')?.querySelector('td[name=\"user_id\"]')?.textContent.trim()",
                 "match_type": "exact",
                 "match_value": "Marc Demo",
@@ -1228,7 +1234,7 @@
                 "dom_match"
             ],
             "dom_match": {
-                "url": "http://localhost:8070/web?reload=true#action=484&model=sale.order&view_type=list&cids=1&menu_id=308",
+                "url": "__ERP__/web?reload=true#action=484&model=sale.order&view_type=list&cids=1&menu_id=308",
                 "dom_extractor": "Array.from(document.querySelectorAll('tr.o_data_row')).find(tr => tr.querySelector('td[name=\"name\"]')?.textContent.trim() === 'S00021')?.querySelector('td[name=\"invoice_status\"]').textContent.trim()",
                 "match_type": "exact",
                 "match_value": "Fully Invoiced",
@@ -1248,7 +1254,7 @@
                 "dom_match"
             ],
             "dom_match": {
-                "url": "http://localhost:8070/web?reload=true#action=243&model=account.move&view_type=list&cids=1&menu_id=113",
+                "url": "__ERP__/web?reload=true#action=243&model=account.move&view_type=list&cids=1&menu_id=113",
                 "dom_extractor": "Array.from(document.querySelectorAll('tr.o_data_row')).find(tr => tr.querySelector('td[name=\"name\"]')?.textContent.trim() === 'INV/2025/00005')?.querySelector('td[name=\"payment_state\"]').textContent.trim()",
                 "match_type": "exact",
                 "match_value": "Paid",
@@ -1268,7 +1274,7 @@
                 "dom_match"
             ],
             "dom_match": {
-                "url": "http://localhost:8070/web?reload=true#action=515&model=hr.employee&view_type=kanban&cids=1&menu_id=346",
+                "url": "__ERP__/web?reload=true#action=515&model=hr.employee&view_type=kanban&cids=1&menu_id=346",
                 "dom_extractor": "Array.from(document.querySelectorAll('div.o_kanban_record')).find(card => card.textContent.includes('account.test.5@mynes.com'))?.querySelector('.o_kanban_record_title span')?.textContent.trim()",
                 "match_type": "exact",
                 "match_value": "Employee 1",
@@ -1288,7 +1294,7 @@
                 "dom_match"
             ],
             "dom_match": {
-                "url": "http://localhost:8070/web?reload=true#action=515&model=hr.employee&view_type=kanban&cids=1&menu_id=343",
+                "url": "__ERP__/web?reload=true#action=515&model=hr.employee&view_type=kanban&cids=1&menu_id=343",
                 "dom_extractor": "Array.from(document.querySelectorAll('div.o_kanban_record')).find(card => card.textContent.includes('Employee 2'))?.querySelector('.o_kanban_record_subtitle span')?.textContent.trim()",
                 "match_type": "exact",
                 "match_value": "Web Developer",
@@ -1308,7 +1314,7 @@
                 "dom_match"
             ],
             "dom_match": {
-                "url": "http://localhost:8070/web?reload=true#action=511&model=hr.job&view_type=list&cids=1&menu_id=359",
+                "url": "__ERP__/web?reload=true#action=511&model=hr.job&view_type=list&cids=1&menu_id=359",
                 "dom_extractor": "[...document.querySelectorAll('tbody.ui-sortable tr.o_data_row')].some(tr => tr.querySelector('td[name=\"name\"]')?.innerText.includes('QC Manager'))",
                 "match_type": "exact",
                 "match_value": true,
@@ -1328,7 +1334,7 @@
                 "dom_match"
             ],
             "dom_match": {
-                "url": "http://localhost:8070/web?reload=true#action=510&model=hr.contract.type&view_type=list&cids=1&menu_id=360",
+                "url": "__ERP__/web?reload=true#action=510&model=hr.contract.type&view_type=list&cids=1&menu_id=360",
                 "dom_extractor": "[...document.querySelectorAll('tbody.ui-sortable tr.o_data_row')].some(tr => tr.querySelector('td[name=\"name\"]')?.innerText.includes('Internship'))",
                 "match_type": "exact",
                 "match_value": true,
@@ -1348,7 +1354,7 @@
                 "dom_match"
             ],
             "dom_match": {
-                "url": "http://localhost:8070/web?reload=true#action=510&model=hr.contract.type&view_type=list&cids=1&menu_id=360",
+                "url": "__ERP__/web?reload=true#action=510&model=hr.contract.type&view_type=list&cids=1&menu_id=360",
                 "dom_extractor": "document.querySelector('tbody.ui-sortable tr.o_data_row td[name=\"name\"]').innerText",
                 "match_type": "exact",
                 "match_value": "Full-time",
@@ -1368,7 +1374,7 @@
                 "dom_match"
             ],
             "dom_match": {
-                "url": "http://localhost:8070/web?reload=true#action=542&model=hr.leave.allocation&view_type=list&cids=1&menu_id=372",
+                "url": "__ERP__/web?reload=true#action=542&model=hr.leave.allocation&view_type=list&cids=1&menu_id=372",
                 "dom_extractor": "document.querySelector('tr.o_data_row')?.querySelector('td[name=\"employee_id\"]')?.innerText.includes('Cherry Nguyen') ? document.querySelector('tr.o_data_row')?.querySelector('td[name=\"duration_display\"]')?.innerText.trim() : null",
                 "match_type": "exact",
                 "match_value": "2 days",
@@ -1378,7 +1384,7 @@
     },
     {
         "task_id": "72",
-        "task_description": "Navigate to Paul Williams’s org chart and view direct reports.",
+        "task_description": "List the names of all direct reports under Paul Williams in the org chart and return them as a comma-separated string.",
         "task_type": "operation",
         "start_url": "__ERP__",
         "steps": "8",
@@ -1388,8 +1394,11 @@
                 "string_match"
             ],
             "string_match": {
-                "match_type": "semantic",
-                "match_value": "2 people"
+                "match_type": "contains",
+                "match_value": [
+                    "Beth Evans",
+                    "Walter Horton"
+                ]
             }
         }
     },
@@ -1405,7 +1414,7 @@
                 "dom_match"
             ],
             "dom_match": {
-                "url": "http://localhost:8070/web?reload=true#action=539&model=hr.leave.type&view_type=list&cids=1&menu_id=377",
+                "url": "__ERP__/web?reload=true#action=539&model=hr.leave.type&view_type=list&cids=1&menu_id=377",
                 "dom_extractor": "!![...document.querySelectorAll('td[name=\"display_name\"]')].find(td => td.innerText.includes('Marriage Leave'))",
                 "match_type": "exact",
                 "match_value": true,
@@ -1425,7 +1434,7 @@
                 "dom_match"
             ],
             "dom_match": {
-                "url": "http://localhost:8070/web?reload=true#action=535&model=hr.leave&view_type=list&cids=1&menu_id=371",
+                "url": "__ERP__/web?reload=true#action=535&model=hr.leave&view_type=list&cids=1&menu_id=371",
                 "dom_extractor": "!![...document.querySelectorAll('td[name=\"all_employee_ids\"] .o_tag_badge_text')].find(el => el.textContent.trim().includes('Anita Oliver'))",
                 "match_type": "exact",
                 "match_value": false,
@@ -1445,7 +1454,7 @@
                 "dom_match"
             ],
             "dom_match": {
-                "url": "http://localhost:8070/web?reload=true#action=38&model=ir.module.module&view_type=list&cids=1&menu_id=15",
+                "url": "__ERP__/web?reload=true#action=38&model=ir.module.module&view_type=list&cids=1&menu_id=15",
                 "dom_extractor": "Array.from(document.querySelectorAll('tr.o_data_row')).find(tr => tr.querySelector('td[name=\"shortdesc\"]')?.textContent.trim() === 'Project')?.querySelector('td[name=\"state\"]').innerText.trim()",
                 "match_type": "exact",
                 "match_value": "Installed",
@@ -1465,7 +1474,7 @@
                 "dom_match"
             ],
             "dom_match": {
-                "url": "http://localhost:8070/web?debug=#action=52&model=res.company&view_type=kanban&cids=1&menu_id=57",
+                "url": "__ERP__/web?debug=#action=52&model=res.company&view_type=kanban&cids=1&menu_id=57",
                 "dom_extractor": "!![...document.querySelectorAll('.o_kanban_record')].find(div => div.innerText.includes('Alaska Company') && div.innerText.includes('account.test.4@mynes.com'))",
                 "match_type": "exact",
                 "match_value": true,
@@ -1485,7 +1494,7 @@
                 "dom_match"
             ],
             "dom_match": {
-                "url": "http://localhost:8070/web?debug=#action=498&model=product.template&view_type=list&cids=1&menu_id=315",
+                "url": "__ERP__/web?debug=#action=498&model=product.template&view_type=list&cids=1&menu_id=315",
                 "dom_extractor": "Array.from(document.querySelectorAll('tr.o_data_row')).find(tr => tr.querySelector('td[name=\"name\"]')?.textContent.trim() === 'Pizza Starfruit')?.querySelector('td[name=\"qty_available\"]').textContent.trim()",
                 "match_type": "exact",
                 "match_value": "200.00",
@@ -1505,7 +1514,7 @@
                 "dom_match"
             ],
             "dom_match": {
-                "url": "http://localhost:8070/web?debug=#action=484&model=sale.order&view_type=list&cids=1&menu_id=308",
+                "url": "__ERP__/web?debug=#action=484&model=sale.order&view_type=list&cids=1&menu_id=308",
                 "dom_extractor": "document.querySelector('tbody.ui-sortable tr.o_data_row td[name=\"amount_total\"]').innerText.trim()",
                 "match_type": "exact",
                 "match_value": "$ 862.50",
@@ -1525,7 +1534,7 @@
                 "dom_match"
             ],
             "dom_match": {
-                "url": "http://localhost:8070/web?debug=#action=329&model=stock.warehouse&view_type=list&cids=1&menu_id=196",
+                "url": "__ERP__/web?debug=#action=329&model=stock.warehouse&view_type=list&cids=1&menu_id=196",
                 "dom_extractor": "[...document.querySelectorAll('tbody.ui-sortable tr.o_data_row')].some(tr => tr.querySelector('td[name=\"complete_name\"]')?.innerText.includes('Freezer Room'))",
                 "match_type": "exact",
                 "match_value": true,
@@ -1545,7 +1554,7 @@
                 "dom_match"
             ],
             "dom_match": {
-                "url": "http://localhost:8070/web?debug=#action=485&model=sale.order&view_type=list&cids=1&menu_id=307",
+                "url": "__ERP__/web?debug=#action=485&model=sale.order&view_type=list&cids=1&menu_id=307",
                 "dom_extractor": "Array.from(document.querySelectorAll('tr.o_data_row')).find(tr => tr.querySelector('td[name=\"name\"]')?.textContent.trim() === 'S00033')?.querySelector('td[name=\"state\"]').innerText.trim()",
                 "match_type": "exact",
                 "match_value": "Cancelled",
@@ -1565,7 +1574,7 @@
                 "dom_match"
             ],
             "dom_match": {
-                "url": "http://localhost:8070/web?debug=#action=448&model=crm.lead&view_type=list&cids=1&menu_id=280",
+                "url": "__ERP__/web?debug=#action=448&model=crm.lead&view_type=list&cids=1&menu_id=280",
                 "dom_extractor": "Array.from(document.querySelectorAll('tr.o_data_row')).find(tr => tr.querySelector('td[name=\"name\"]')?.textContent.trim() === 'AI Agent Development')?.querySelector('td[name=\"stage_id\"]').innerText.trim()",
                 "match_type": "exact",
                 "match_value": "Won",
@@ -1585,7 +1594,7 @@
                 "dom_match"
             ],
             "dom_match": {
-                "url": "http://localhost:8070/web?debug=#id=23&cids=1&menu_id=346&action=515&model=hr.employee&view_type=form",
+                "url": "__ERP__/web?debug=#id=23&cids=1&menu_id=346&action=515&model=hr.employee&view_type=form",
                 "dom_extractor": "document.querySelector('.o_content span').innerText",
                 "match_type": "exact",
                 "match_value": "ARCHIVED",
@@ -1605,7 +1614,7 @@
                 "dom_match"
             ],
             "dom_match": {
-                "url": "http://localhost:8070/web#action=119&cids=1&menu_id=76&active_id=discuss.channel_6",
+                "url": "__ERP__/web#action=119&cids=1&menu_id=76&active_id=discuss.channel_6",
                 "dom_extractor": "[...document.querySelectorAll('div.o-mail-Message p')].pop().innerText.trim()",
                 "match_type": "exact",
                 "match_value": "Please review the sales report.",
@@ -1625,7 +1634,7 @@
                 "dom_match"
             ],
             "dom_match": {
-                "url": "http://localhost:8070/web?reload=true#action=119&cids=1&menu_id=76",
+                "url": "__ERP__/web?reload=true#action=119&cids=1&menu_id=76",
                 "dom_extractor": "[...document.querySelectorAll('button.o-mail-DiscussSidebarChannel')].some(btn => btn.innerText.includes('Dev Team Chat'))",
                 "match_type": "exact",
                 "match_value": true,
@@ -1645,7 +1654,7 @@
                 "dom_match"
             ],
             "dom_match": {
-                "url": "http://localhost:8070/web?reload=true#action=119&cids=1&menu_id=76&active_id=discuss.channel_7",
+                "url": "__ERP__/web?reload=true#action=119&cids=1&menu_id=76&active_id=discuss.channel_7",
                 "dom_extractor": "[...document.querySelectorAll('.o_mail_notification')].map(div => div.innerText).some(t => t.includes('invited') && t.includes('Alice Lam')) && [...document.querySelectorAll('.o_mail_notification')].map(div => div.innerText).some(t => t.includes('invited') && t.includes('Marc Demo'))",
                 "match_type": "exact",
                 "match_value": true,
@@ -1665,7 +1674,7 @@
                 "dom_match"
             ],
             "dom_match": {
-                "url": "http://localhost:8070/web#action=119&cids=1&menu_id=76&active_id=discuss.channel_10",
+                "url": "__ERP__/web#action=119&cids=1&menu_id=76&active_id=discuss.channel_10",
                 "dom_extractor": "[...document.querySelectorAll('div.o-mail-Message p')].pop().innerText.trim()",
                 "match_type": "exact",
                 "match_value": "Standup at 9 AM",
@@ -1685,7 +1694,7 @@
                 "dom_match"
             ],
             "dom_match": {
-                "url": "http://localhost:8070/web#action=119&cids=1&menu_id=76&active_id=discuss.channel_10",
+                "url": "__ERP__/web#action=119&cids=1&menu_id=76&active_id=discuss.channel_10",
                 "dom_extractor": "[...document.querySelectorAll('button.o-mail-MessageReaction')].at(-1)?.querySelector('span').innerText",
                 "match_type": "exact",
                 "match_value": "👍",
@@ -1705,7 +1714,7 @@
                 "dom_match"
             ],
             "dom_match": {
-                "url": "http://localhost:8070/web#action=119&cids=1&menu_id=76&active_id=discuss.channel_10",
+                "url": "__ERP__/web#action=119&cids=1&menu_id=76&active_id=discuss.channel_10",
                 "dom_extractor": "[...document.querySelectorAll('div.o-mail-Message')].pop().innerText.includes('@Marc Demo')",
                 "match_type": "exact",
                 "match_value": true,
@@ -1715,7 +1724,7 @@
     },
     {
         "task_id": "89",
-        "task_description": "Open the latest pinned message in \"Company Portal.\"",
+        "task_description": "Find the content of the latest pinned message in \"Company Portal\" and return the text only.",
         "task_type": "operation",
         "start_url": "__ERP__",
         "steps": "4",
@@ -1725,14 +1734,14 @@
                 "string_match"
             ],
             "string_match": {
-                "match_type": "semantic",
-                "match_value": "Status meeting at 9:00 AM"
+                "match_type": "contains",
+                "match_value": "Status meeting at 9:00 in the morning"
             }
         }
     },
     {
         "task_id": "90",
-        "task_description": "Check the status of the sales record with reference S00002.",
+        "task_description": "Find the status of the sales record with reference S00002 and return the value only.",
         "task_type": "lookup",
         "start_url": "__ERP__",
         "steps": "3",
@@ -1749,7 +1758,7 @@
     },
     {
         "task_id": "91",
-        "task_description": "Check the untaxed total amount of sales order S00004.",
+        "task_description": "Find the untaxed total amount of sales order S00004 and return the value only.",
         "task_type": "lookup",
         "start_url": "__ERP__",
         "steps": "6",
@@ -1766,7 +1775,7 @@
     },
     {
         "task_id": "92",
-        "task_description": "Check the weight of the product \"Office Chair Black.\"",
+        "task_description": "Find the weight of the product 'Office Chair Black' and return the value only.",
         "task_type": "lookup",
         "start_url": "__ERP__",
         "steps": "8",
@@ -1783,7 +1792,7 @@
     },
     {
         "task_id": "93",
-        "task_description": "Check the shipping policy of sales order S00004.",
+        "task_description": "Find the shipping policy for sales order S00004 and return the policy text only.",
         "task_type": "lookup",
         "start_url": "__ERP__",
         "steps": "6",
@@ -1793,14 +1802,14 @@
                 "string_match"
             ],
             "string_match": {
-                "match_type": "contains",
+                "match_type": "exact",
                 "match_value": "As soon as possible"
             }
         }
     },
     {
         "task_id": "94",
-        "task_description": "View the most recent school attended by Tina Williamson.",
+        "task_description": "Find the most recent school attended by Tina Williamson in the Education section and return only the school name.",
         "task_type": "lookup",
         "start_url": "__ERP__",
         "steps": "8",
@@ -1824,17 +1833,24 @@
         "require_login": true,
         "eval": {
             "eval_type": [
-                "string_match"
+                "dom_match"
             ],
-            "string_match": {
-                "match_type": "semantic",
-                "match_value": "250 Executive Park Blvd, Suite 3400, San Francisco CA 94134, United States"
+            "dom_match": {
+                "url": "last",
+                "dom_extractor": "document.querySelector('[name=\"address_id\"] .o_field_many2one_extra')?.innerText.trim()",
+                "match_type": "contains",
+                "match_value": [
+                    "250 Executive Park Blvd, Suite 3400",
+                    "San Francisco CA 94134",
+                    "United States"
+                ],
+                "description": "Verify that Randall Lewis' work address is displayed correctly."
             }
         }
     },
     {
         "task_id": "96",
-        "task_description": "Check the number of parental leave days allocated to Ronnie Hart.",
+        "task_description": "Find the parental leave days for Ronnie Hart and return the value only.",
         "task_type": "lookup",
         "start_url": "__ERP__",
         "steps": "4",
@@ -1844,7 +1860,7 @@
                 "string_match"
             ],
             "string_match": {
-                "match_type": "exact",
+                "match_type": "contains",
                 "match_value": "10"
             }
         }
@@ -1861,8 +1877,8 @@
                 "dom_match"
             ],
             "dom_match": {
-                "url": "http://localhost:8070/web?reload=true#action=448&model=crm.lead&view_type=list&cids=1&menu_id=280",
-                "dom_extractor": "[...document.querySelectorAll('tbody.ui-sortable tr.o_data_row')].find(row => row.querySelector('td[name=\"name\"]')?.textContent.trim() === \"Website Development\")?.querySelector('td[name=\"expected_revenue\"] span')?.textContent.trim()",
+                "url": "__ERP__/web#id=46&cids=1&menu_id=280&action=448&model=crm.lead&view_type=form",
+                "dom_extractor": "document.querySelector('#expected_revenue_0').value",
                 "match_type": "exact",
                 "match_value": "$ 50,000.00",
                 "description": "Verify that the expected revenue for the lead titled 'Website Development' is '$ 50,000.00'."
@@ -1881,7 +1897,7 @@
                 "dom_match"
             ],
             "dom_match": {
-                "url": "http://localhost:8070/web#id=17&cids=1&menu_id=204&action=354&model=product.template&view_type=form",
+                "url": "__ERP__/web#id=17&cids=1&menu_id=204&action=354&model=product.template&view_type=form",
                 "dom_extractor": "document.querySelector('[name=\"qty_available\"]').innerText",
                 "match_type": "contains",
                 "match_value": "25",
@@ -1891,7 +1907,7 @@
     },
     {
         "task_id": "99",
-        "task_description": "Apply a 10% discount to the product \"Pizza Starfruit\" in quotation S00028.",
+        "task_description": "Apply a 10% discount to the product Pizza Starfruit and return the final total value displayed in quotation S00028.",
         "task_type": "operation",
         "start_url": "__ERP__",
         "steps": "6",
@@ -1902,7 +1918,7 @@
             ],
             "string_match": {
                 "match_type": "contains",
-                "match_value": "13.51"
+                "match_value": "12.94"
             }
         }
     },
@@ -1918,7 +1934,7 @@
                 "dom_match"
             ],
             "dom_match": {
-                "url": "http://localhost:8070/web?reload=true#id=22&cids=1&menu_id=280&action=448&model=crm.lead&view_type=form",
+                "url": "__ERP__/web?reload=true#id=22&cids=1&menu_id=280&action=448&model=crm.lead&view_type=form",
                 "dom_extractor": "document.querySelector('[name=\"tag_ids\"]').innerText",
                 "match_type": "exact",
                 "match_value": "Product",
