@@ -129,24 +129,39 @@
     },
     {
         "task_id": "8",
-        "task_description": "Navigate to Watches, apply filter results by price $40–$49.99, sort by Price: Low to High, and view first first product detail page.",
+        "task_description": "Navigate to Watches, apply filter results by price $40–$49.99.",
         "task_type": "lookup",
         "start_url": "__SHOPPING__",
         "steps": "8",
         "require_login": false,
         "eval": {
-            "eval_type": []
+            "eval_type": [
+                "dom_match"
+            ],
+            "dom_match": {
+                "url": "last",
+                "dom_extractor": "document.querySelector('.filter-current .filter-value')?.innerText",
+                "match_type": "exact",
+                "match_value": "$40.00 - $49.99",
+                "description": "Verify the price filter $40.00–$49.99 is applied."
+            }
         }
     },
     {
         "task_id": "9",
-        "task_description": "Place an order as a guest and navigate to the order confirmation page.",
+        "task_description": "Place an order as a guest and reach the checkout success page.",
         "task_type": "operation",
         "start_url": "__SHOPPING__",
         "steps": "17",
         "require_login": false,
         "eval": {
-            "eval_type": []
+            "eval_type": [
+                "url_match"
+            ],
+            "url_match": {
+                "match_type": "contains",
+                "match_value": "checkout/onepage/success"
+            }
         }
     },
     {
@@ -555,7 +570,17 @@
         "steps": "6",
         "require_login": true,
         "eval": {
-            "eval_type": []
+            "eval_type": [
+                "dom_match"
+            ],
+            "dom_match": {
+                "type": "dom_match",
+                "url": "__SHOPPING__/overnight-duffle-bag.html",
+                "dom_extractor": "document.querySelector('[data-ui-id=\"page-title-wrapper\"]')?.innerText",
+                "match_type": "exact",
+                "match_value": "Overnight Duffle",
+                "description": "Verify the product page is accessible after updating the URL key."
+            }
         }
     },
     {
@@ -2072,7 +2097,17 @@
         "steps": "16",
         "require_login": false,
         "eval": {
-            "eval_type": []
+            "eval_type": [
+                "dom_match"
+            ],
+            "dom_match": {
+                "type": "dom_match",
+                "url": "__SHOPPING__/checkout/cart/",
+                "dom_extractor": "(() => { const items = [...document.querySelectorAll('#shopping-cart-table tbody.cart.item')]; const names = items.map(t => t.querySelector('.product-item-name a')?.innerText); return (items.length === 3 && names.includes('Deirdre Relaxed-Fit Capri') && names.includes('Sylvia Capri') && names.includes('Aeon Capri')) ? \"1\" : \"0\"; })()",
+                "match_type": "exact",
+                "match_value": "1",
+                "description": "Verify the shopping cart contains exactly three items: Deirdre Relaxed-Fit Capri, Sylvia Capri, and Aeon Capri."
+            }
         }
     },
     {
