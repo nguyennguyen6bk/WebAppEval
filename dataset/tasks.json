@@ -2750,7 +2750,7 @@
         }
     },
     {
-        "task_id": "153",
+        "task_id": "139",
         "task_description": "Submit a 3-hour overtime request for Dec 31, 2025 with the reason 'Regression testing after bug fixing'.",
         "task_type": "operation",
         "start_url": "__LMS__",
@@ -2982,7 +2982,7 @@
     },
     {
         "task_id": "150",
-        "task_description": "Display all leave requests currently marked as Requested.",
+        "task_description": "Display all my leave requests currently marked as Requested.",
         "task_type": "lookup",
         "start_url": "__LMS__",
         "steps": "8",
@@ -3004,6 +3004,406 @@
                 "match_type": "exact",
                 "match_value": "1",
                 "description": "Verify that all displayed leave requests are marked as Requested."
+            }
+        }
+    },
+    {
+        "task_id": "151",
+        "task_description": "Set a yearly cap of 5 days for 'paternity leave' for all employees in this full year",
+        "task_type": "operation",
+        "start_url": "__LMS__",
+        "steps": "14",
+        "require_login": true,
+        "eval": {
+            "eval_type": [
+                "dom_match"
+            ],
+            "dom_match": {
+                "url": "__LMS__/requests/balance",
+                "dom_extractor": "[...document.querySelectorAll('#balance tbody tr')].every(r => r.cells[[...document.querySelectorAll('#balance thead th')].findIndex(th => th.innerText.trim() === 'paternity leave')]?.innerText.trim() === '5') ? '1' : '0'",
+                "match_type": "exact",
+                "match_value": "1",
+                "description": "Verify that the paternity leave yearly cap is set to 5 days for all employees"
+            }
+        }
+    },
+    {
+        "task_id": "152",
+        "task_description": "Create a 'Sick leave' request for employee 'account.test.1@mynes.com' on Jan, 3 2026",
+        "task_type": "form",
+        "start_url": "__LMS__",
+        "steps": "10",
+        "require_login": true,
+        "eval": {
+            "eval_type": [
+                "dom_match"
+            ],
+            "dom_match": {
+                "url": "__LMS__/hr/leaves/2",
+                "dom_extractor": "[...document.querySelectorAll('tbody tr')].some(r => r.innerText.includes('01/03/2026') && r.innerText.includes('Sick leave')) ? '1' : '0'",
+                "match_type": "exact",
+                "match_value": "1",
+                "description": "Verify that a Sick leave request exists on 01/03/2026"
+            }
+        }
+    },
+    {
+        "task_id": "153",
+        "task_description": "Create a new product attribute named \"Fabric\" using Dropdown as the Catalog Input Type, with the options Cotton, Wool, and Polyester. After saving, reopen the attribute and review its properties.",
+        "task_type": "operation",
+        "start_url": "__SHOPPING_ADMIN__",
+        "steps": "12",
+        "require_login": true,
+        "eval": {
+            "eval_type": [
+                "dom_match"
+            ],
+            "dom_match": {
+                "url": "last",
+                "dom_extractor": "return (() => { const values = [...document.querySelectorAll('#manage-options-panel tbody input[name^=\"option[value]\"][name$=\"[0]\"]')].map(i => i.value.trim()); const expected = ['Cotton','Wool','Polyester']; return (values.length === 3 && expected.every(v => values.includes(v))) ? '1' : '0'; })();",
+                "match_type": "exact",
+                "match_value": "1",
+                "description": "Verify the attribute contains exactly three options: Cotton, Wool, Polyester"
+            }
+        }
+    },
+    {
+        "task_id": "154",
+        "task_description": "Create a customer group named \"Wholesale-5\" and create a catalog price rule that applies a 5% discount to this customer group. After saving, reopen this catalog price rule, expand the Actions section, and review the customer group and discount details.",
+        "task_type": "operation",
+        "start_url": "__SHOPPING_ADMIN__",
+        "steps": "14",
+        "require_login": true,
+        "eval": {
+            "eval_type": [
+                "dom_match"
+            ],
+            "dom_match": {
+                "url": "last",
+                "dom_extractor": "(() => { const simpleAction = document.querySelector('select[name=\"simple_action\"]')?.value; const discountAmount = document.querySelector('input[name=\"discount_amount\"]')?.value || ''; const selectedGroups = [...document.querySelector('select[name=\"customer_group_ids\"]')?.selectedOptions || []].map(o => o.textContent.trim()); return (simpleAction === 'by_percent' && discountAmount.includes('5') && selectedGroups.includes('Wholesale-5')) ? '1' : '0'; })()",
+                "match_type": "exact",
+                "match_value": "1",
+                "description": "Verify discount rule uses by_percent, discount amount contains 5, and Wholesale-5 customer group is selected"
+            }
+        }
+    },
+    {
+        "task_id": "155",
+        "task_description": "Create a new attribute set named \"CustomSet01\" based on the Default attribute set. Then add the unassigned attribute \"color\" to this attribute set under the Product Details group. After saving, reopen this attribute set and review its details.",
+        "task_type": "operation",
+        "start_url": "__SHOPPING_ADMIN__",
+        "steps": "12",
+        "require_login": true,
+        "eval": {
+            "eval_type": [
+                "dom_match"
+            ],
+            "dom_match": {
+                "url": "last",
+                "dom_extractor": "(() => document.querySelector('input[name=\"attribute_set_name\"]')?.value?.trim() === 'CustomSet01' && [...document.querySelectorAll('li')].some(li => li.textContent.includes('Product Details') && li.textContent.toLowerCase().includes('color')) ? '1' : '0')()",
+                "match_type": "exact",
+                "match_value": "1",
+                "description": "Verify attribute set name is CustomSet01 and Color exists under Product Details"
+            }
+        }
+    },
+    {
+        "task_id": "156",
+        "task_description": "Create a new admin user with the email \"admin.test.8@mynes.com\n\". In the Current User Identity Verification section, enter the current admin password \"Admin@123\" to confirm the action.",
+        "task_type": "operation",
+        "start_url": "__SHOPPING_ADMIN__",
+        "steps": "8",
+        "require_login": true,
+        "eval": {
+            "eval_type": [
+                "dom_match"
+            ],
+            "dom_match": {
+                "url": "last",
+                "dom_extractor": "(() => [...document.querySelectorAll('tbody tr')].some(tr => tr.querySelector('[data-column=\"email\"]')?.textContent.trim() === 'admin.test.8@mynes.com' && tr.querySelector('[data-column=\"role_name\"]')?.textContent.trim() === 'Administrators') ? '1' : '0')()",
+                "match_type": "exact",
+                "match_value": "1",
+                "description": "Verify the new admin user with email admin.test.8@mynes.com appears in the Users grid and has Administrators role"
+            }
+        }
+    },
+    {
+        "task_id": "157",
+        "task_description": "Create a new CMS block named \"Homepage Promo Banner\" with identifier \"homepage-promo-banner\". Set the content HTML to \"<p>Spring Sale Up to 30%</p>\". After saving, reopen this CMS block and review its details.",
+        "task_type": "form",
+        "start_url": "__SHOPPING_ADMIN__",
+        "steps": "12",
+        "require_login": true,
+        "eval": {
+            "eval_type": [
+                "dom_match"
+            ],
+            "dom_match": {
+                "url": "last",
+                "dom_extractor": "document.querySelector('.placeholder-html-code')?.innerText.trim()",
+                "match_type": "contains",
+                "match_value": "Spring Sale Up to 30%",
+                "description": "Verify PageBuilder HTML content contains 'Spring Sale Up to 30%'"
+            }
+        }
+    },
+    {
+        "task_id": "158",
+        "task_description": "Refresh the lifetime statistics for all reports, then view the Invoice Report for the date range from March 10, 2025 to March 31, 2025.",
+        "task_type": "lookup",
+        "start_url": "__SHOPPING_ADMIN__",
+        "steps": "18",
+        "require_login": true,
+        "eval": {
+            "eval_type": [
+                "dom_match"
+            ],
+            "dom_match": {
+                "url": "last",
+                "dom_extractor": "((document.querySelector('#sales_report_from')?.value.trim() === '3/10/25') && (document.querySelector('#sales_report_to')?.value.trim() === '3/31/25') && [...document.querySelectorAll('tr.totals')].some(r => r.cells[1]?.innerText.trim() === '2' && r.cells[3]?.innerText.trim() === '$76.03')) ? '1' : '0'",
+                "match_type": "exact",
+                "match_value": "1",
+                "description": "Verify invoice report for March 10–31, 2025 has total orders = 2 and total invoiced = $76.03."
+            }
+        }
+    },
+    {
+        "task_id": "159",
+        "task_description": "Create an API integration named \"CatalogAPIOnly\" with email \"account.test.2@mynes.com\" and confirm password \"Admin@123\".\nGrant access to Catalog API resources only, then open the integration details to review API Resources.",
+        "task_type": "operation",
+        "start_url": "__SHOPPING_ADMIN__",
+        "steps": "10",
+        "require_login": true,
+        "eval": {
+            "eval_type": [
+                "dom_match"
+            ],
+            "dom_match": {
+                "url": "last",
+                "dom_extractor": "[...document.querySelectorAll('tbody tr')].some(tr => tr.querySelector('[data-column=\"name\"]')?.innerText.trim() === 'CatalogAPIOnly') ? '1' : '0'",
+                "match_type": "exact",
+                "match_value": "1",
+                "description": "Verify there is an API integration named CatalogAPIOnly"
+            }
+        }
+    },
+    {
+        "task_id": "160",
+        "task_description": "Open the Customers Orders Total report and verify the order total value on March 21, 2025.",
+        "task_type": "operation",
+        "start_url": "__SHOPPING_ADMIN__",
+        "steps": "10",
+        "require_login": true,
+        "eval": {
+            "eval_type": [
+                "dom_match"
+            ],
+            "dom_match": {
+                "url": "last",
+                "dom_extractor": "document.querySelector('tfoot [data-column=\"orders_sum_amount\"]')?.innerText.trim()",
+                "match_type": "contains",
+                "match_value": "29",
+                "description": "Verify total order amount is $29.00"
+            }
+        }
+    },
+    {
+        "task_id": "161",
+        "task_description": "Create a new bug in project 'Demo-Project' with subject 'Homepage Banner Not Loading', and assign it to 'Agent Merkle'.",
+        "task_type": "operation",
+        "start_url": "__PROJECT__",
+        "steps": "8",
+        "require_login": true,
+        "eval": {
+            "eval_type": [
+                "dom_match"
+            ],
+            "dom_match": {
+                "url": "last",
+                "dom_extractor": "document.querySelector('h2')?.innerText.includes('Bug') && document.querySelector('.assigned-to .value')?.innerText.includes('Agent Merkle') ? '1' : '0'",
+                "match_type": "exact",
+                "match_value": "1",
+                "description": "Verify the issue is a Bug and assigned to Agent Merkle"
+            }
+        }
+    },
+    {
+        "task_id": "162",
+        "task_description": "Change the priority of issue #1 in project 'Demo-Project' to 'Urgent'.",
+        "task_type": "operation",
+        "start_url": "__PROJECT__",
+        "steps": "7",
+        "require_login": true,
+        "eval": {
+            "eval_type": [
+                "dom_match"
+            ],
+            "dom_match": {
+                "url": "__PROJECT__/issues/1",
+                "dom_extractor": "document.querySelector('.priority .value')?.innerText.trim()",
+                "match_type": "exact",
+                "match_value": "Urgent",
+                "description": "Verify issue priority is exactly Urgent"
+            }
+        }
+    },
+    {
+        "task_id": "163",
+        "task_description": "Log 4 hours and 30 minutes of time to issue #1 in the 'Demo-Project' project with the activity 'Development'.",
+        "task_type": "operation",
+        "start_url": "__PROJECT__",
+        "steps": "8",
+        "require_login": true,
+        "eval": {
+            "eval_type": [
+                "dom_match"
+            ],
+            "dom_match": {
+                "url": "__PROJECT__/projects/demo-project/time_entries",
+                "dom_extractor": "[...document.querySelectorAll('tbody tr')].some(tr => tr.querySelector('td.issue')?.innerText.includes('Bug #1') && tr.querySelector('td.activity')?.innerText.trim() === 'Development' && tr.querySelector('td.hours')?.innerText.trim() === '4:30') ? '1' : '0'",
+                "match_type": "exact",
+                "match_value": "1",
+                "description": "Verify there is a time entry for Bug #1 with activity Development and logged time 4:30"
+            }
+        }
+    },
+    {
+        "task_id": "164",
+        "task_description": "Update the % Done of the time entry for issue #1 in 'Demo-Project' to 50%.",
+        "task_type": "operation",
+        "start_url": "__PROJECT__",
+        "steps": "8",
+        "require_login": true,
+        "eval": {
+            "eval_type": [
+                "dom_match"
+            ],
+            "dom_match": {
+                "url": "__PROJECT__/issues/1",
+                "dom_extractor": "document.querySelector('.progress .percent')?.innerText.trim()",
+                "match_type": "exact",
+                "match_value": "50%",
+                "description": "Verify % Done of issue #1 is updated to 50%"
+            }
+        }
+    },
+    {
+        "task_id": "165",
+        "task_description": "Create a new tracker named 'Security Bug' and enable it for all projects.",
+        "task_type": "operation",
+        "start_url": "__PROJECT__",
+        "steps": "7",
+        "require_login": true,
+        "eval": {
+            "eval_type": [
+                "dom_match"
+            ],
+            "dom_match": {
+                "url": "__PROJECT__/trackers",
+                "dom_extractor": "[...document.querySelectorAll('table.trackers tbody tr')].some(tr => tr.querySelector('td.name')?.innerText.trim().toLowerCase() === 'security bug') ? '1' : '0'",
+                "match_type": "exact",
+                "match_value": "1",
+                "description": "Verify there is a tracker named Security Bug"
+            }
+        }
+    },
+    {
+        "task_id": "166",
+        "task_description": "Create a new time tracking activity named 'Bug Fixing'.",
+        "task_type": "operation",
+        "start_url": "__PROJECT__",
+        "steps": "5",
+        "require_login": true,
+        "eval": {
+            "eval_type": [
+                "dom_match"
+            ],
+            "dom_match": {
+                "url": "__PROJECT__/enumerations",
+                "dom_extractor": "[...document.querySelectorAll('table.enumerations tbody tr')].some(tr => tr.querySelector('td.name')?.innerText.trim() === 'Bug Fixing') ? '1' : '0'",
+                "match_type": "exact",
+                "match_value": "1",
+                "description": "Verify there is a time tracking activity named Bug Fixing"
+            }
+        }
+    },
+    {
+        "task_id": "167",
+        "task_description": "Update my Date of Birth to Dec 31, 2000 and then save the changes, and verify the updated value",
+        "task_type": "operation",
+        "start_url": "__ERP__",
+        "steps": "6",
+        "require_login": true,
+        "eval": {
+            "eval_type": [
+                "dom_match"
+            ],
+            "dom_match": {
+                "url": "last",
+                "dom_extractor": "document.querySelector('input[data-field=\"birthday\"]')?.value",
+                "match_type": "exact",
+                "match_value": "12/31/2000",
+                "description": "Verify Date of Birth is updated to Dec 31, 2000"
+            }
+        }
+    },
+    {
+        "task_id": "168",
+        "task_description": "Add and enable custom checkbox 'Allow Remote Work' for employee Anita Olivier and save the changes",
+        "task_type": "operation",
+        "start_url": "__ERP__",
+        "steps": "10",
+        "require_login": true,
+        "eval": {
+            "eval_type": [
+                "dom_match"
+            ],
+            "dom_match": {
+                "url": "last",
+                "dom_extractor": "[...document.querySelectorAll('.o_property_field')].some(f => f.querySelector('label span')?.innerText.trim() === 'Allow Remote Work' && f.querySelector('input[type=\"checkbox\"]')) ? '1' : '0'",
+                "match_type": "exact",
+                "match_value": "1",
+                "description": "Verify the property 'Allow Remote Work' exists and is a checkbox"
+            }
+        }
+    },
+    {
+        "task_id": "169",
+        "task_description": "Mark the opportunity 'Modern Open Space' as Lost with reason \"Budget Issue\"",
+        "task_type": "operation",
+        "start_url": "__ERP__",
+        "steps": "8",
+        "require_login": true,
+        "eval": {
+            "eval_type": [
+                "dom_match"
+            ],
+            "dom_match": {
+                "url": "last",
+                "dom_extractor": "document.querySelector('.o_widget_web_ribbon .ribbon-top-right span')?.innerText.trim() === 'LOST' && document.querySelector('input[id^=\"lost_reason_id\"]')?.value.trim() === 'Budget Issue' ? '1' : '0'",
+                "match_type": "exact",
+                "match_value": "1",
+                "description": "Opportunity is marked as LOST and Lost Reason is Budget Issue"
+            }
+        }
+    },
+    {
+        "task_id": "170",
+        "task_description": "Navigate to the Lost opportunities list",
+        "task_type": "operation",
+        "start_url": "__ERP__",
+        "steps": "5",
+        "require_login": true,
+        "eval": {
+            "eval_type": [
+                "dom_match"
+            ],
+            "dom_match": {
+                "url": "last",
+                "dom_extractor": "document.querySelector('.o_searchview_facet .o_facet_value')?.innerText.trim()",
+                "match_type": "exact",
+                "match_value": "Lost",
+                "description": "Lost opportunities list is displayed"
             }
         }
     }
