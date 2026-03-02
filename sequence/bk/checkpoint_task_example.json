@@ -1,0 +1,68 @@
+{
+  "task_id": "1",
+  "task_description": "Open the first product in the Watches menu, sorted by ascending position.",
+  "task_type": "lookup",
+  "start_url": "__SHOPPING__",
+  "require_login": false,
+  
+  "sequence": [ 
+    { "id": "s1", "command": "open", "target": "https://localhost:8084" }, //value?
+    { "id": "s2", "command": "click", "target": "css=[data-nav='gear']" }, // xpath làm chuẩn
+    { "id": "s3", "command": "click", "target": "css=[data-nav='watches']" },
+    { "id": "s4", "command": "click", "target": "css=.product-list .product:nth-child(1) a" }
+  ],
+  "checkpoints": [
+    {
+      "id": "1",
+      "after_step_id": "s1",
+      "description": "Homepage loaded",
+      "signals": [
+        {
+          "url_match": { 
+            "match_type": "contains", 
+            "match_value": "localhost:8084" 
+          }
+        },
+        {
+          "dom_match": {
+            "dom_extractor": "document.title",
+            "match_type": "contains",
+            "match_value": "Home"
+          }
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "after_step_id": "s3",
+      "description": "Watches page loaded",
+       "signals": [
+        {
+          "url_match": { 
+            "match_type": "contains", 
+            "match_value": "gear/watches" 
+          }
+        },
+        {
+          "dom_match": {
+            "dom_extractor": "document.querySelector('.product-list') !== null",
+            "match_type": "exact",
+            "match_value": true  
+          }
+        }
+       
+      ]
+    }
+  ],
+  "eval": {
+    "url_match": { 
+      "match_type": "contains", 
+      "match_value": "aim-analog-watch" 
+    },
+    "dom_match": {
+      "dom_extractor": "document.title",
+      "match_type": "exact", 
+      "match_value": "Aim Analog Watch" 
+    }
+  }
+}

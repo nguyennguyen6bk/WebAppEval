@@ -1,0 +1,17 @@
+[
+  {
+    "command": "open",
+    "target": "http://localhost:8084/",
+    "value": ""
+  },
+  {
+    "command": "click",
+    "target": "xpath=//a[@id='ui-id-26']/span",
+    "value": ""
+  },
+  {
+    "command": "click",
+    "target": "xpath=//img[@alt='Aim Analog Watch']",
+    "value": ""
+  }
+]

@@ -1,0 +1,115 @@
+{
+    "title": "Recording 1/25/2026 at 1:18:28 PM",
+    "steps": [
+        {
+            "type": "setViewport",
+            "width": 1905,
+            "height": 945,
+            "deviceScaleFactor": 1,
+            "isMobile": false,
+            "hasTouch": false,
+            "isLandscape": false
+        },
+        {
+            "type": "navigate",
+            "url": "http://localhost:8084/",
+            "assertedEvents": [
+                {
+                    "type": "navigation",
+                    "url": "http://localhost:8084/",
+                    "title": "Home Page"
+                }
+            ]
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "aria/Watches",
+                    "aria/[role=\"generic\"]"
+                ],
+                [
+                    "li.nav-4-3 span"
+                ],
+                [
+                    "xpath///*[@id=\"ui-id-26\"]/span"
+                ],
+                [
+                    "pierce/li.nav-4-3 span"
+                ],
+                [
+                    "text/Watches"
+                ]
+            ],
+            "offsetY": 5,
+            "offsetX": 33,
+            "assertedEvents": [
+                {
+                    "type": "navigation",
+                    "url": "http://localhost:8084/gear/watches.html",
+                    "title": ""
+                }
+            ]
+        },
+        {
+            "type": "change",
+            "value": "account.test.2@mynes.com",
+            "selectors": [
+                [
+                    "#customer-email"
+                ],
+                [
+                    "xpath///*[@id=\"customer-email\"]"
+                ],
+                [
+                    "pierce/#customer-email"
+                ]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "change",
+            "value": "Admin@123",
+            "selectors": [
+                [
+                    "#pass"
+                ],
+                [
+                    "xpath///*[@id=\"pass\"]"
+                ],
+                [
+                    "pierce/#pass"
+                ]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "aria/Aim Analog Watch[role=\"image\"]"
+                ],
+                [
+                    "li:nth-of-type(1) img"
+                ],
+                [
+                    "xpath///*[@id=\"product-item-info_36\"]/a/span/span/img"
+                ],
+                [
+                    "pierce/li:nth-of-type(1) img"
+                ]
+            ],
+            "offsetY": 137.359375,
+            "offsetX": 139.359375,
+            "assertedEvents": [
+                {
+                    "type": "navigation",
+                    "url": "http://localhost:8084/aim-analog-watch.html",
+                    "title": ""
+                }
+            ]
+        }
+    ]
+}

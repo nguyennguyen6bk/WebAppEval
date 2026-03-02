@@ -1,0 +1,177 @@
+{
+  "task_id": "1",
+  "task_description": "Navigate to the Aim Analog Watch product detail page.",
+  "task_type": "lookup",
+  "start_url": "__SHOPPING__",
+  "require_login": false,
+  "sequences": [
+    {
+      "sequence_id":"seq-1",
+      "steps":[
+        {
+          "id": "seq-1_s1",
+          "actions": [
+            {
+              "command": "open",
+              "target": "https://localhost:8084"
+            }
+          ]
+        },
+        {
+          "id": "seq-1_s2",
+          "actions": [
+            {
+              "command": "click",
+              "target": "xpath//*[@id='ui-id-21']/span[2]"
+            }
+          ]
+        },
+        {
+          "id": "seq-1_s3",
+          "actions": [
+            {
+              "command": "click",
+              "target": "xpath//*[@id='narrow-by-list2']/dd/ol/li[3]/a"
+            }
+          ]
+        },
+        {
+          "id": "seq-1_s4",
+          "actions": [
+            {
+              "command": "click",
+              "target": "xpath//*[@id='product-item-info_36']/div/strong/a"
+            }
+          ]
+        }
+      ],
+      "checkpoints":[
+        {
+          "id": "seq-1_cp1",
+          "after_step_id": "seq-1_s1",
+          "description": "Homepage loaded",
+          "signals": [
+            {
+              "url_match": { 
+                "match_type": "contains", 
+                "match_value": "localhost:8084" 
+              }
+            },
+            {
+              "dom_match": {
+                "dom_extractor": "document.title",
+                "match_type": "contains",
+                "match_value": "Home"
+              }
+            }
+          ]
+        },
+        {
+          "id": "seq-1_cp2",
+          "after_step_id": "seq-1_s3",
+          "description": "Watches page loaded",
+          "signals": [
+            {
+              "url_match": { 
+                "match_type": "contains", 
+                "match_value": "gear/watches" 
+              }
+            },
+            {
+              "dom_match": {
+                "dom_extractor": "document.querySelector('#page-title-heading .base')?.textContent?.trim()",
+                "match_type": "exact",
+                "match_value": "Watches"  
+              }
+            }
+          
+          ]
+        }
+      ]
+    },
+    {
+      "sequence_id":"seq-2",
+      "steps": [
+        {
+          "id": "seq-2_s1",
+          "actions": [{ "command": "open", "target": "https://localhost:8084" }]
+        },
+        {
+          "id": "seq-2_s2",
+          "actions": [{ "command": "click", "target": "xpath//*[@id='search']" }]
+        },
+        {
+          "id": "seq-2_s3",
+          "actions": [{ "command": "fill", "target": "xpath//*[@id='search']", "value": "Aim Analog Watch" }]
+        },
+        {
+          "id": "seq-2_s4",
+          "actions": [
+            { "command": "click", "target": "xpath//*[@id='search_mini_form']/div[2]/button" },
+
+
+            { "command": "press", "target": "xpath//*[@id='search']", "value": "Enter" }
+          ]
+        },
+        {
+          "id": "seq-2_s5",
+          "actions": [{ "command": "click", "target": "xpath///*[@id='product-item-info_36']/div/strong/a" }]
+        }
+      ],
+      "checkpoints":[
+        {
+          "id": "seq-2_cp1",
+          "after_step_id": "seq-2_s1",
+          "description": "Homepage loaded",
+          "signals": [
+            {
+              "url_match": { 
+                "match_type": "contains", 
+                "match_value": "localhost:8084" 
+              }
+            },
+            {
+              "dom_match": {
+                "dom_extractor": "document.title",
+                "match_type": "contains",
+                "match_value": "Home"
+              }
+            }
+          ]
+        },
+        {
+          "id": "seq-2_cp2",
+          "after_step_id": "seq-2_s4",
+          "description": "Search page loaded",
+          "signals": [
+            {
+              "url_match": { 
+                "match_type": "contains", 
+                "match_value": "catalogsearch/result/?q=" 
+              }
+            },
+            {
+              "dom_match": {
+                "dom_extractor": "document.title",
+                "match_type": "exact",
+                "match_value": "Search results for: 'Aim Analog Watch'"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],    
+  "eval": {
+    "url_match": { 
+      "match_type": "contains", 
+      "match_value": "aim-analog-watch" 
+    },
+    "dom_match": {
+      "url":"last",
+      "dom_extractor": "document.title",
+      "match_type": "exact", 
+      "match_value": "Aim Analog Watch" 
+    }
+  }
+}

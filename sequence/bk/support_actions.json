@@ -1,0 +1,9 @@
+{
+  "supported_actions": {
+    "core": ["open", "click", "fill", "press", "scroll"], 
+
+    "extended": ["double_click", "right_click", "hover"],
+
+    "advanced": ["drag_drop", "upload_file"]
+  }
+}

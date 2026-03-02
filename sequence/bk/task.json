@@ -1,0 +1,37 @@
+{
+  "task_id": "1",
+  "task_description": "Navigate to 'Gear > Watches' and return only the name of the first product by ascending position.",
+  "task_type": "lookup",
+  "start_url": "__SHOPPING__",
+  "require_login": false,
+  "sequence": [
+    { "id": "s1", "command": "open", "target": "https://localhost:8084" },
+    { "id": "s2", "command": "click", "target": "css=[data-nav='gear']" },
+    { "id": "s3", "command": "click", "target": "css=[data-nav='watches']" },
+    { "id": "s4", "command": "extractText", "target": "css=.product-list .product:nth-child(1) .product-name" }
+  ],
+  "checkpoints": [
+    {
+      "id": "1",
+      "after_step_id": "s1",
+      "description": "Homepage loaded",
+      "signals": [
+        { "type": "urlContains", "value": "localhost:8084" },
+        { "type": "a11yRoleExists", "value": { "role": "navigation" } }
+      ]
+    },
+    {
+      "id": "2",
+      "after_step_id": "s3",
+      "description": "Watches category listing is visible",
+      "signals": [
+        { "type": "urlContains", "value": "/gear/watches" },
+        { "type": "a11yRoleExists", "value": { "role": "list" } }
+      ]
+    }
+  ],
+  "eval": {
+    "eval_type": ["string_match"],
+    "string_match": { "match_type": "exact", "match_value": "Aim Analog Watch" }
+  }
+}

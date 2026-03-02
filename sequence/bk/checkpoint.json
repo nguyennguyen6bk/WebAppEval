@@ -1,0 +1,26 @@
+{
+  "id": "CP_CUSTOMER_CONTEXT",
+  "description": "Customer management context is visible",
+
+  "signals": [
+    {
+      "type": "urlContains", // Loại (matching type) / Đối tượng (URL / Text / element) / Giá trị
+      "object": "url",
+      "value": "/customer",
+    },
+    {
+      "type": "semanticTextMatch",
+      "value": ["customer", "client", "account"],
+    },
+    {
+      "type": "a11yRoleExists",
+      "value": { "role": "table" },
+    }
+  ]
+}
+
+Regex
+Form
+Table
+Text
+Pagination

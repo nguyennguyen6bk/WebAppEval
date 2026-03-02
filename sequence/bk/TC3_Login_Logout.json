@@ -1,0 +1,71 @@
+1. Tác vụ có assert
+
+;
+=> agent sinh ra sequence với assert tương ứng
+
+=> so sánh với ground_truth
+
+
+
+
+
+1. Tác vụ 
+2. Ground_truth
+ sequence + assert
+
+
+[
+  {
+    "command": "open",
+    "target": "http://localhost:8084/",
+    "value": ""
+  },
+  {
+    "command": "click",
+    "target": "link=Sign In",
+    "value": "",
+    "assert": "assertElementPresent(link=Sign In)"
+  },
+
+  {
+    "command": "click",
+    "target": "id=email",
+    "value": ""
+  },
+  {
+    "command": "type",
+    "target": "id=email",
+    "value": "$email"
+  },
+  {
+    "command": "click",
+    "target": "id=pass",
+    "value": ""
+  },
+  {
+    "command": "type",
+    "target": "id=pass",
+    "value": "Admin@123"
+  },
+  {
+    "command": "click",
+    "target": "id=show-password",
+    "value": ""
+  },
+  {
+    "command": "click",
+    "target": "xpath=//button[@id='send2']/span",
+    "value": ""
+  },
+  checkpoint ($email logged in)
+  {
+    "command": "click",
+    "target": "xpath=//button[@type='button']",
+    "value": ""
+  },
+  {
+    "command": "click",
+    "target": "link=Sign Out",
+    "value": ""
+  }
+]
